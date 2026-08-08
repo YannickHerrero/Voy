@@ -16,8 +16,11 @@ struct InventoryItemEditorView: View {
     @State private var showsPhotoOptions = false
     @State private var showsCamera = false
     @State private var showsPhotoLibrary = false
+    @State private var showsOnlineBrowser = false
     @State private var selectedPhotoItem: PhotosPickerItem?
     @State private var pendingPhoto: PhotoProcessingResult?
+    @State private var pendingSourceURL: URL?
+    @State private var pendingImageURL: URL?
     @State private var isPreparingImage = false
     @FocusState private var focusedField: Field?
 
@@ -157,6 +160,9 @@ struct InventoryItemEditorView: View {
                 Button("Choose from Photo Library", systemImage: "photo.on.rectangle") {
                     showsPhotoLibrary = true
                 }
+                Button("Find Online", systemImage: "safari") {
+                    showsOnlineBrowser = true
+                }
                 if draft.imageData != nil {
                     Button("Remove Photo", systemImage: "trash", role: .destructive) {
                         removePhoto()
@@ -179,9 +185,17 @@ struct InventoryItemEditorView: View {
                 }
                 .ignoresSafeArea()
             }
-            .sheet(item: $pendingPhoto) { result in
+            .sheet(isPresented: $showsOnlineBrowser) {
+                OnlineImageBrowserView { selection in
+                    showsOnlineBrowser = false
+                    prepareOnlineImage(selection)
+                }
+            }
+            .sheet(item: $pendingPhoto, onDismiss: clearPendingSource) { result in
                 PhotoNormalizationPreview(result: result) { image in
                     apply(image)
+                    draft.sourceURL = pendingSourceURL
+                    draft.originalImageURL = pendingImageURL
                 }
             }
             .onChange(of: selectedPhotoItem) { _, newItem in
@@ -206,6 +220,7 @@ struct InventoryItemEditorView: View {
     }
 
     private func prepareLibraryPhoto(_ item: PhotosPickerItem) {
+        clearPendingSource()
         isPreparingImage = true
         Task {
             defer {
@@ -224,6 +239,7 @@ struct InventoryItemEditorView: View {
     }
 
     private func prepareCameraImage(_ image: UIImage) {
+        clearPendingSource()
         guard let data = image.jpegData(compressionQuality: 0.95) else {
             errorMessage = "That photo could not be read. Please take it again."
             return
@@ -239,6 +255,21 @@ struct InventoryItemEditorView: View {
         }
     }
 
+    private func prepareOnlineImage(_ selection: OnlineImageSelection) {
+        pendingSourceURL = selection.pageURL
+        pendingImageURL = selection.imageURL
+        isPreparingImage = true
+        Task {
+            defer { isPreparingImage = false }
+            do {
+                pendingPhoto = try await PhotoNormalizer.process(selection.data)
+            } catch {
+                clearPendingSource()
+                errorMessage = "That online image could not be prepared. Try choosing another one."
+            }
+        }
+    }
+
     private func apply(_ image: PreparedImage) {
         draft.imageData = image.displayData
         draft.thumbnailData = image.thumbnailData
@@ -249,6 +280,13 @@ struct InventoryItemEditorView: View {
         draft.imageData = nil
         draft.thumbnailData = nil
         draft.originalImageData = nil
+        draft.sourceURL = nil
+        draft.originalImageURL = nil
+    }
+
+    private func clearPendingSource() {
+        pendingSourceURL = nil
+        pendingImageURL = nil
     }
 
     private func save() {
@@ -267,6 +305,8 @@ struct InventoryItemEditorView: View {
         target.imageData = draft.imageData
         target.thumbnailData = draft.thumbnailData
         target.originalImageData = draft.originalImageData
+        target.sourceURL = draft.sourceURL
+        target.originalImageURL = draft.originalImageURL
         target.touch()
 
         if item == nil {
@@ -300,6 +340,8 @@ private extension InventoryItemEditorView {
         var imageData: Data?
         var thumbnailData: Data?
         var originalImageData: Data?
+        var sourceURL: URL?
+        var originalImageURL: URL?
 
         init(item: InventoryItem?) {
             name = item?.name ?? ""
@@ -316,6 +358,8 @@ private extension InventoryItemEditorView {
             imageData = item?.imageData
             thumbnailData = item?.thumbnailData
             originalImageData = item?.originalImageData
+            sourceURL = item?.sourceURL
+            originalImageURL = item?.originalImageURL
         }
 
         var hasOptionalDetails: Bool {
