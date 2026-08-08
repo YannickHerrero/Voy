@@ -11,6 +11,7 @@ struct InventoryView: View {
     @State private var selectedCollectionID: UUID?
     @State private var selectedStatus: ItemStatus? = .owned
     @State private var showsItemEditor = false
+    @State private var showsOrganizer = false
 
     private let columns = [GridItem(.adaptive(minimum: 142, maximum: 230), spacing: 20)]
 
@@ -71,7 +72,13 @@ struct InventoryView: View {
         .navigationTitle("Inventory")
         .searchable(text: $searchText, prompt: "Search possessions")
         .toolbar {
-            ToolbarItem(placement: .primaryAction) {
+            ToolbarItemGroup(placement: .primaryAction) {
+                Button {
+                    showsOrganizer = true
+                } label: {
+                    Label("Organize", systemImage: "ellipsis.circle")
+                }
+
                 Button {
                     showsItemEditor = true
                 } label: {
@@ -81,6 +88,9 @@ struct InventoryView: View {
         }
         .sheet(isPresented: $showsItemEditor) {
             InventoryItemEditorView()
+        }
+        .sheet(isPresented: $showsOrganizer) {
+            InventoryTaxonomyView()
         }
         .safeAreaInset(edge: .top, spacing: 0) {
             InventoryFilterBar(

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0877D593327B6ABA74F4433F /* VoyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BF370C389D5C70159C884E /* VoyApp.swift */; };
 		158AC3E0ECCF274027AF1B12 /* PackingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3C4139255656A9DABD4FEE /* PackingModels.swift */; };
+		170D5B8D34CC7B97B71D385A /* InventoryTaxonomyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3100F5D24C412646EAB53C1 /* InventoryTaxonomyView.swift */; };
 		1FBA9ADED7986C5B043E15F4 /* StoredImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE6ADDC269ED044AEBAB4C /* StoredImageView.swift */; };
 		20C58E58EA937523E7D0A53E /* MinimalismModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682D6E1B2DA2233DA24D006 /* MinimalismModels.swift */; };
 		2396E335C180450858E49DBC /* PackingCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */; };
@@ -59,6 +60,7 @@
 		B1572C4EE7CED1E415783EE9 /* DataSchemaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSchemaTests.swift; sourceTree = "<group>"; };
 		B5BE6ADDC269ED044AEBAB4C /* StoredImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredImageView.swift; sourceTree = "<group>"; };
 		B682D6E1B2DA2233DA24D006 /* MinimalismModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalismModels.swift; sourceTree = "<group>"; };
+		C3100F5D24C412646EAB53C1 /* InventoryTaxonomyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTaxonomyView.swift; sourceTree = "<group>"; };
 		CE7F560DD7DD5751C2F2491D /* Voy.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Voy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40961D107237757B99F8C3A /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 			children = (
 				130007479BBD0F4D533EA003 /* InventoryItemDetailView.swift */,
 				1DC41BBB5CC2A135BC0DB5F8 /* InventoryItemEditorView.swift */,
+				C3100F5D24C412646EAB53C1 /* InventoryTaxonomyView.swift */,
 				A7907F2382C882A03235A059 /* InventoryView.swift */,
 			);
 			path = Inventory;
@@ -283,6 +286,7 @@
 				55B2424E3DE4D36F958CDDC3 /* InventoryItemDetailView.swift in Sources */,
 				FA80BAE85D69AE364939ED59 /* InventoryItemEditorView.swift in Sources */,
 				E12CF229C0B054D5D2A69EF5 /* InventoryModels.swift in Sources */,
+				170D5B8D34CC7B97B71D385A /* InventoryTaxonomyView.swift in Sources */,
 				D192DD218BF086A0C23D7180 /* InventoryView.swift in Sources */,
 				20C58E58EA937523E7D0A53E /* MinimalismModels.swift in Sources */,
 				3B878D957148F20FF8E38539 /* PackingCalculations.swift in Sources */,
