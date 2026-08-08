@@ -40,5 +40,7 @@ struct DataSchemaTests {
         #expect(categories.count == DataSeeder.defaultCategoryNames.count)
         #expect(collections.count == DataSeeder.defaultCollectionNames.count)
         #expect(settings.count == 1)
+        let nomadicID = settings.first?.nomadicCollectionID
+        #expect(collections.first { $0.id == nomadicID }?.name == "Nomadic")
     }
 }

@@ -22,11 +22,17 @@ enum DataSeeder {
             didChange = true
         }
 
-        var collectionDescriptor = FetchDescriptor<InventoryCollection>()
-        collectionDescriptor.fetchLimit = 1
-        if try context.fetch(collectionDescriptor).isEmpty {
+        let existingCollections = try context.fetch(FetchDescriptor<InventoryCollection>())
+        var nomadicCollectionID = existingCollections.first {
+            $0.name.localizedCaseInsensitiveCompare("Nomadic") == .orderedSame
+        }?.id
+        if existingCollections.isEmpty {
             for name in defaultCollectionNames {
-                context.insert(InventoryCollection(name: name))
+                let collection = InventoryCollection(name: name)
+                context.insert(collection)
+                if name == "Nomadic" {
+                    nomadicCollectionID = collection.id
+                }
             }
             didChange = true
         }
@@ -34,7 +40,7 @@ enum DataSeeder {
         var settingsDescriptor = FetchDescriptor<MinimalismSettings>()
         settingsDescriptor.fetchLimit = 1
         if try context.fetch(settingsDescriptor).isEmpty {
-            context.insert(MinimalismSettings())
+            context.insert(MinimalismSettings(nomadicCollectionID: nomadicCollectionID))
             didChange = true
         }
 

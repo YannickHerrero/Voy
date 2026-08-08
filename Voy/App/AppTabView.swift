@@ -22,12 +22,7 @@ struct AppTabView: View {
             }
 
             NavigationStack {
-                PlaceholderView(
-                    title: "Minimalism",
-                    symbol: "leaf",
-                    message: "A calm view of what you own."
-                )
-                .navigationTitle("Minimalism")
+                MinimalismView()
             }
             .tabItem {
                 Label("Minimalism", systemImage: "leaf")

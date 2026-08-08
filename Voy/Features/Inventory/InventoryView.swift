@@ -113,7 +113,7 @@ struct InventoryView: View {
     }
 }
 
-private struct InventoryGridCell: View {
+struct InventoryGridCell: View {
     let item: InventoryItem
 
     var body: some View {
