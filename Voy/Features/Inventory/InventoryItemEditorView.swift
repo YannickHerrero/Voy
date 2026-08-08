@@ -1,5 +1,7 @@
+import PhotosUI
 import SwiftData
 import SwiftUI
+import UIKit
 
 struct InventoryItemEditorView: View {
     @Environment(\.dismiss) private var dismiss
@@ -11,6 +13,11 @@ struct InventoryItemEditorView: View {
     @State private var draft: Draft
     @State private var showsMoreDetails: Bool
     @State private var errorMessage: String?
+    @State private var showsPhotoOptions = false
+    @State private var showsCamera = false
+    @State private var showsPhotoLibrary = false
+    @State private var selectedPhotoItem: PhotosPickerItem?
+    @State private var isPreparingImage = false
     @FocusState private var focusedField: Field?
 
     init(item: InventoryItem? = nil) {
@@ -25,19 +32,42 @@ struct InventoryItemEditorView: View {
     }
 
     private var canSave: Bool {
-        !draft.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && draft.categoryID != nil
+        !isPreparingImage
+            && !draft.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            && draft.categoryID != nil
     }
 
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    StoredImageView(data: draft.imageData ?? draft.thumbnailData, symbol: "camera")
-                        .aspectRatio(1, contentMode: .fit)
+                    Button {
+                        showsPhotoOptions = true
+                    } label: {
+                        ZStack(alignment: .bottom) {
+                            StoredImageView(data: draft.imageData ?? draft.thumbnailData, symbol: "camera")
+                                .aspectRatio(1, contentMode: .fit)
+
+                            if isPreparingImage {
+                                ProgressView("Preparing photo…")
+                                    .padding(12)
+                                    .frame(maxWidth: .infinity)
+                                    .background(.regularMaterial)
+                            } else {
+                                Label(draft.imageData == nil ? "Add Photo" : "Change Photo", systemImage: "camera")
+                                    .font(.subheadline.weight(.medium))
+                                    .padding(12)
+                                    .frame(maxWidth: .infinity)
+                                    .background(.regularMaterial)
+                            }
+                        }
                         .frame(maxWidth: 360)
                         .frame(maxWidth: .infinity)
                         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                        .listRowBackground(Color.clear)
+                    }
+                    .buttonStyle(.plain)
+                    .disabled(isPreparingImage)
+                    .listRowBackground(Color.clear)
                 }
 
                 Section {
@@ -115,7 +145,44 @@ struct InventoryItemEditorView: View {
                         .disabled(!canSave)
                 }
             }
-            .alert("Couldn’t Save", isPresented: Binding(
+            .confirmationDialog("Add a Photo", isPresented: $showsPhotoOptions, titleVisibility: .visible) {
+                Button("Take Photo", systemImage: "camera") {
+                    if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                        showsCamera = true
+                    } else {
+                        errorMessage = "A camera is not available on this device."
+                    }
+                }
+                Button("Choose from Photo Library", systemImage: "photo.on.rectangle") {
+                    showsPhotoLibrary = true
+                }
+                if draft.imageData != nil {
+                    Button("Remove Photo", systemImage: "trash", role: .destructive) {
+                        removePhoto()
+                    }
+                }
+                Button("Cancel", role: .cancel) {}
+            }
+            .photosPicker(
+                isPresented: $showsPhotoLibrary,
+                selection: $selectedPhotoItem,
+                matching: .images,
+                preferredItemEncoding: .current
+            )
+            .sheet(isPresented: $showsCamera) {
+                CameraPicker { image in
+                    showsCamera = false
+                    prepareCameraImage(image)
+                } onCancel: {
+                    showsCamera = false
+                }
+                .ignoresSafeArea()
+            }
+            .onChange(of: selectedPhotoItem) { _, newItem in
+                guard let newItem else { return }
+                prepareLibraryPhoto(newItem)
+            }
+            .alert("Something Went Wrong", isPresented: Binding(
                 get: { errorMessage != nil },
                 set: { if !$0 { errorMessage = nil } }
             )) {
@@ -130,6 +197,52 @@ struct InventoryItemEditorView: View {
                 }
             }
         }
+    }
+
+    private func prepareLibraryPhoto(_ item: PhotosPickerItem) {
+        isPreparingImage = true
+        Task {
+            defer {
+                isPreparingImage = false
+                selectedPhotoItem = nil
+            }
+            do {
+                guard let data = try await item.loadTransferable(type: Data.self) else {
+                    throw ImageFileProcessor.ProcessingError.unreadableImage
+                }
+                apply(try await ImageFileProcessor.prepare(data))
+            } catch {
+                errorMessage = "That photo could not be opened. Try choosing another image."
+            }
+        }
+    }
+
+    private func prepareCameraImage(_ image: UIImage) {
+        guard let data = image.jpegData(compressionQuality: 0.95) else {
+            errorMessage = "That photo could not be read. Please take it again."
+            return
+        }
+        isPreparingImage = true
+        Task {
+            defer { isPreparingImage = false }
+            do {
+                apply(try await ImageFileProcessor.prepare(data))
+            } catch {
+                errorMessage = "That photo could not be prepared. Please take it again."
+            }
+        }
+    }
+
+    private func apply(_ image: PreparedImage) {
+        draft.imageData = image.displayData
+        draft.thumbnailData = image.thumbnailData
+        draft.originalImageData = image.originalData
+    }
+
+    private func removePhoto() {
+        draft.imageData = nil
+        draft.thumbnailData = nil
+        draft.originalImageData = nil
     }
 
     private func save() {

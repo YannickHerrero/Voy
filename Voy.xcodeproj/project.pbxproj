@@ -22,9 +22,12 @@
 		89DC48BA9B4EDC2744AFAE7C /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40961D107237757B99F8C3A /* AppTabView.swift */; };
 		93E9C074C5FD6252FBF528DF /* InventoryCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF0435EC71CD75964617D6E /* InventoryCalculationsTests.swift */; };
 		9ADFE4D52543C72F79DBC088 /* DataSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC89692550F9CCB830C250F /* DataSeeder.swift */; };
+		CBDCCFDDB057FCDCB9367B88 /* ImageFileProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A225337936253C2F1F5B6F6 /* ImageFileProcessorTests.swift */; };
 		D192DD218BF086A0C23D7180 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7907F2382C882A03235A059 /* InventoryView.swift */; };
+		D91B57BAD7E90FCFCB3858C8 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5DFCB02F94245EC3A5EFF3 /* CameraPicker.swift */; };
 		E12CF229C0B054D5D2A69EF5 /* InventoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E330E8FF4C4A2229CA7673E /* InventoryModels.swift */; };
 		E44EE25D791705A7A8E0690C /* DataSchemaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1572C4EE7CED1E415783EE9 /* DataSchemaTests.swift */; };
+		E5C1610B7CB5417E0573AA09 /* ImageFileProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17676A1E2A3E5D4CDC1A8281 /* ImageFileProcessor.swift */; };
 		F5B81444A3115CBEE4905988 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCDDBE2560613C0C300B31 /* AppState.swift */; };
 		FA80BAE85D69AE364939ED59 /* InventoryItemEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC41BBB5CC2A135BC0DB5F8 /* InventoryItemEditorView.swift */; };
 /* End PBXBuildFile section */
@@ -43,15 +46,18 @@
 		03E5B05AAEA2088D992170E0 /* InventoryCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCalculations.swift; sourceTree = "<group>"; };
 		05BF370C389D5C70159C884E /* VoyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyApp.swift; sourceTree = "<group>"; };
 		130007479BBD0F4D533EA003 /* InventoryItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItemDetailView.swift; sourceTree = "<group>"; };
+		17676A1E2A3E5D4CDC1A8281 /* ImageFileProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileProcessor.swift; sourceTree = "<group>"; };
 		1DC41BBB5CC2A135BC0DB5F8 /* InventoryItemEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItemEditorView.swift; sourceTree = "<group>"; };
 		1E330E8FF4C4A2229CA7673E /* InventoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryModels.swift; sourceTree = "<group>"; };
 		20DCDDBE2560613C0C300B31 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingCalculationsTests.swift; sourceTree = "<group>"; };
+		2A225337936253C2F1F5B6F6 /* ImageFileProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileProcessorTests.swift; sourceTree = "<group>"; };
 		2F3C4139255656A9DABD4FEE /* PackingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingModels.swift; sourceTree = "<group>"; };
 		327D763BF788FEA8249E8B03 /* Voy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Voy.entitlements; sourceTree = "<group>"; };
 		461CBD98670CCE2817FD93DC /* SyncStatusBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatusBanner.swift; sourceTree = "<group>"; };
 		4EF3E79F71A77D30783499BE /* VoyTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VoyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AC89692550F9CCB830C250F /* DataSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSeeder.swift; sourceTree = "<group>"; };
+		5E5DFCB02F94245EC3A5EFF3 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
 		6E795D2F0760E758049CE9D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		717CE3145B3DBA565BECC0B6 /* PackingCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingCalculations.swift; sourceTree = "<group>"; };
 		A7907F2382C882A03235A059 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
@@ -121,6 +127,7 @@
 				2AF7B6726267FE1DA8C480B4 /* Data */,
 				3A9AF6761F63897D2A146308 /* Domain */,
 				2063F381CA9216E076A73BF3 /* Features */,
+				FC6FE6B08C78D57CB2B364CD /* Media */,
 				A5973367CA10F5BA05D21DCE /* Resources */,
 			);
 			path = Voy;
@@ -140,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				B1572C4EE7CED1E415783EE9 /* DataSchemaTests.swift */,
+				2A225337936253C2F1F5B6F6 /* ImageFileProcessorTests.swift */,
 				AFF0435EC71CD75964617D6E /* InventoryCalculationsTests.swift */,
 				2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */,
 			);
@@ -181,6 +189,15 @@
 				4EF3E79F71A77D30783499BE /* VoyTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FC6FE6B08C78D57CB2B364CD /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				5E5DFCB02F94245EC3A5EFF3 /* CameraPicker.swift */,
+				17676A1E2A3E5D4CDC1A8281 /* ImageFileProcessor.swift */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,7 +255,7 @@
 					413B68B09BB9BFDDB66164B8 = {
 						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
-						SystemCapabilities = "[\"com.apple.iCloud\": [\"enabled\": 1], \"com.apple.Push\": [\"enabled\": 1]]";
+						SystemCapabilities = "[\"com.apple.Push\": [\"enabled\": 1], \"com.apple.iCloud\": [\"enabled\": 1]]";
 					};
 				};
 			};
@@ -280,8 +297,10 @@
 			files = (
 				F5B81444A3115CBEE4905988 /* AppState.swift in Sources */,
 				89DC48BA9B4EDC2744AFAE7C /* AppTabView.swift in Sources */,
+				D91B57BAD7E90FCFCB3858C8 /* CameraPicker.swift in Sources */,
 				5C1A5696E41896209F5AC6DB /* DataSchema.swift in Sources */,
 				9ADFE4D52543C72F79DBC088 /* DataSeeder.swift in Sources */,
+				E5C1610B7CB5417E0573AA09 /* ImageFileProcessor.swift in Sources */,
 				7FE70B05A4C08BB5DC2A5A03 /* InventoryCalculations.swift in Sources */,
 				55B2424E3DE4D36F958CDDC3 /* InventoryItemDetailView.swift in Sources */,
 				FA80BAE85D69AE364939ED59 /* InventoryItemEditorView.swift in Sources */,
@@ -302,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E44EE25D791705A7A8E0690C /* DataSchemaTests.swift in Sources */,
+				CBDCCFDDB057FCDCB9367B88 /* ImageFileProcessorTests.swift in Sources */,
 				93E9C074C5FD6252FBF528DF /* InventoryCalculationsTests.swift in Sources */,
 				2396E335C180450858E49DBC /* PackingCalculationsTests.swift in Sources */,
 			);
@@ -472,6 +492,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Voy;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Add photographs of your possessions to your private inventory.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Choose photographs of possessions for your private inventory.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -511,6 +533,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Voy;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Add photographs of your possessions to your private inventory.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Choose photographs of possessions for your private inventory.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
