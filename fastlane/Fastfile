@@ -8,6 +8,7 @@ TEAM_ID = ENV.fetch("APPLE_TEAM_ID", "KY6RHJR4LZ")
 PORTAL_USER = ENV.fetch("APPLE_ID")
 SIGNING_ARGS = "DEVELOPMENT_TEAM='#{TEAM_ID}'"
 APP_IDENTIFIER = "com.yannickherrero.voy"
+APP_STORE_NAME = "Voy Inventory & Packing"
 CLOUD_CONTAINER_IDENTIFIER = "iCloud.com.yannickherrero.voy"
 APP_PROFILE = "Voy App Store"
 APP_VERSION = "1.0"
@@ -89,7 +90,7 @@ platform :ios do
     )
     unless Spaceship::ConnectAPI::App.find(APP_IDENTIFIER)
       Spaceship::ConnectAPI::App.create(
-        name: "Voy",
+        name: APP_STORE_NAME,
         version_string: APP_VERSION,
         sku: "voy-ios",
         primary_locale: "en-US",
