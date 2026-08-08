@@ -51,17 +51,18 @@ platform :ios do
       name: "Voy",
       identifier: APP_IDENTIFIER
     )
+    icloud_settings = [
+      {
+        key: Spaceship::ConnectAPI::BundleIdCapability::Settings::ICLOUD_VERSION,
+        options: [
+          { key: Spaceship::ConnectAPI::BundleIdCapability::Options::XCODE_6 }
+        ]
+      }
+    ]
     ensure_capability(
       bundle: app_bundle,
       capability_type: Spaceship::ConnectAPI::BundleIdCapability::Type::ICLOUD,
-      settings: [
-        {
-          key: Spaceship::ConnectAPI::BundleIdCapability::Settings::ICLOUD_VERSION,
-          options: [
-            { key: Spaceship::ConnectAPI::BundleIdCapability::Options::XCODE_5 }
-          ]
-        }
-      ]
+      settings: icloud_settings
     )
     ensure_capability(
       bundle: app_bundle,
@@ -77,6 +78,9 @@ platform :ios do
       )
     portal_app = Spaceship::Portal::App.find(APP_IDENTIFIER)
     UI.user_error!("Missing Developer Portal App ID #{APP_IDENTIFIER}") unless portal_app
+    portal_app.update_service(Spaceship::Portal::AppService::Cloud.on)
+    portal_app.update_service(Spaceship::Portal::AppService::CloudKit.cloud_kit)
+    portal_app = Spaceship::Portal::App.find(APP_IDENTIFIER)
     associated_containers = portal_app.details.associated_cloud_containers || []
     unless associated_containers.any? { |container| container.identifier == CLOUD_CONTAINER_IDENTIFIER }
       portal_app.associate_cloud_containers(associated_containers + [cloud_container])
