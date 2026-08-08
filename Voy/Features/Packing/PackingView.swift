@@ -4,16 +4,27 @@ import SwiftUI
 struct PackingView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \PackingTemplate.modifiedAt, order: .reverse) private var templates: [PackingTemplate]
+    @Query(sort: \PackingSession.startDate, order: .reverse) private var sessions: [PackingSession]
     @Query private var templateEntries: [PackingTemplateEntry]
+    @Query private var sessionEntries: [PackingSessionEntry]
     @Query private var items: [InventoryItem]
 
     @State private var showsNewTemplate = false
+    @State private var showsStartSession = false
     @State private var newTemplateName = ""
     @State private var errorMessage: String?
 
+    private var activeSessions: [PackingSession] {
+        sessions.filter { $0.state == .active }
+    }
+
+    private var historicalSessions: [PackingSession] {
+        sessions.filter { $0.state != .active }
+    }
+
     var body: some View {
         Group {
-            if templates.isEmpty {
+            if templates.isEmpty && sessions.isEmpty {
                 ContentUnavailableView {
                     Label("Pack once, reuse often", systemImage: "suitcase")
                 } description: {
@@ -24,12 +35,42 @@ struct PackingView: View {
                 }
             } else {
                 List {
+                    if !activeSessions.isEmpty {
+                        Section("Active Sessions") {
+                            ForEach(activeSessions) { session in
+                                NavigationLink {
+                                    PackingSessionDetailView(session: session)
+                                } label: {
+                                    sessionRow(session)
+                                }
+                            }
+                        }
+                    }
+
                     Section("Templates") {
-                        ForEach(templates) { template in
-                            NavigationLink {
-                                PackingTemplateDetailView(template: template)
-                            } label: {
-                                templateRow(template)
+                        if templates.isEmpty {
+                            Button("New Packing Template", systemImage: "plus") {
+                                showsNewTemplate = true
+                            }
+                        } else {
+                            ForEach(templates) { template in
+                                NavigationLink {
+                                    PackingTemplateDetailView(template: template)
+                                } label: {
+                                    templateRow(template)
+                                }
+                            }
+                        }
+                    }
+
+                    if !historicalSessions.isEmpty {
+                        Section("Past Sessions") {
+                            ForEach(historicalSessions) { session in
+                                NavigationLink {
+                                    PackingSessionDetailView(session: session)
+                                } label: {
+                                    sessionRow(session)
+                                }
                             }
                         }
                     }
@@ -40,12 +81,22 @@ struct PackingView: View {
         .navigationTitle("Packing")
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                Button {
-                    showsNewTemplate = true
+                Menu {
+                    Button("Start Packing Session", systemImage: "checklist") {
+                        showsStartSession = true
+                    }
+                    .disabled(templates.isEmpty)
+
+                    Button("New Template", systemImage: "plus") {
+                        showsNewTemplate = true
+                    }
                 } label: {
-                    Label("New Template", systemImage: "plus")
+                    Label("Add", systemImage: "plus")
                 }
             }
+        }
+        .sheet(isPresented: $showsStartSession) {
+            StartPackingSessionView()
         }
         .alert("New Packing Template", isPresented: $showsNewTemplate) {
             TextField("Template name", text: $newTemplateName)
@@ -63,6 +114,36 @@ struct PackingView: View {
         } message: {
             Text(errorMessage ?? "Please try again.")
         }
+    }
+
+    private func sessionRow(_ session: PackingSession) -> some View {
+        let progress = PackingCalculations.progress(
+            for: sessionEntries.filter { $0.sessionID == session.id }.map(\.metricInput)
+        )
+
+        return VStack(alignment: .leading, spacing: 6) {
+            HStack {
+                Text(session.name)
+                    .font(.body.weight(.medium))
+                Spacer()
+                if session.state != .active {
+                    Text(session.state.title)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+            HStack(spacing: 12) {
+                Text("\(progress.packedUnits) / \(progress.totalUnits) packed")
+                if progress.knownTotalWeightGrams > 0 {
+                    Text("\(WeightFormatting.string(grams: progress.packedWeightGrams)) / \(WeightFormatting.string(grams: progress.knownTotalWeightGrams))")
+                }
+            }
+            .font(.caption)
+            .foregroundStyle(.secondary)
+            ProgressView(value: progress.fractionComplete)
+                .tint(progress.fractionComplete == 1 ? .green : .accentColor)
+        }
+        .padding(.vertical, 4)
     }
 
     private func templateRow(_ template: PackingTemplate) -> some View {

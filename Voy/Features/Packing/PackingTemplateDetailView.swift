@@ -9,6 +9,7 @@ struct PackingTemplateDetailView: View {
 
     let template: PackingTemplate
     @State private var showsItemPicker = false
+    @State private var showsSessionStarter = false
     @State private var showsRename = false
     @State private var renameText = ""
     @State private var confirmsDeletion = false
@@ -51,6 +52,19 @@ struct PackingTemplateDetailView: View {
                     }
                 }
                 .padding(.vertical, 8)
+            }
+
+            if !entries.isEmpty {
+                Section {
+                    Button {
+                        showsSessionStarter = true
+                    } label: {
+                        Label("Start Packing Session", systemImage: "checklist")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .listRowBackground(Color.clear)
+                }
             }
 
             Section {
@@ -106,6 +120,9 @@ struct PackingTemplateDetailView: View {
             InventoryItemPickerView(excludingIDs: selectedItemIDs) { selectedItems in
                 add(selectedItems)
             }
+        }
+        .sheet(isPresented: $showsSessionStarter) {
+            StartPackingSessionView(template: template)
         }
         .alert("Rename Template", isPresented: $showsRename) {
             TextField("Name", text: $renameText)
@@ -168,7 +185,7 @@ struct PackingTemplateDetailView: View {
                         saveContext()
                     }
                 ),
-                in: 1...max(1, item(for: entry)?.quantity ?? entry.quantity)
+                in: 1...max(1, max(entry.quantity, item(for: entry)?.quantity ?? 1))
             )
             .labelsHidden()
 
