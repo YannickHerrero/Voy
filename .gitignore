@@ -13,5 +13,15 @@ xcuserdata/
 # macOS
 .DS_Store
 
-# Local configuration
+# Local configuration and release credentials
+.env
+fastlane/.env
 *.local.xcconfig
+*.p8
+*.p12
+*.cer
+*.mobileprovision
+
+# Fastlane output
+fastlane/build/
+fastlane/report.xml

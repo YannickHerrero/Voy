@@ -1,0 +1,179 @@
+default_platform(:ios)
+skip_docs
+
+KEY_ID = ENV.fetch("ASC_KEY_ID")
+ISSUER_ID = ENV.fetch("ASC_ISSUER_ID")
+KEY_PATH = File.expand_path(ENV["ASC_KEY_PATH"] || "~/.appstoreconnect/private_keys/AuthKey_#{KEY_ID}.p8")
+TEAM_ID = ENV.fetch("APPLE_TEAM_ID", "KY6RHJR4LZ")
+PORTAL_USER = ENV.fetch("APPLE_ID")
+SIGNING_ARGS = "DEVELOPMENT_TEAM='#{TEAM_ID}'"
+APP_IDENTIFIER = "com.yannickherrero.voy"
+CLOUD_CONTAINER_IDENTIFIER = "iCloud.com.yannickherrero.voy"
+APP_PROFILE = "Voy App Store"
+APP_VERSION = "1.0"
+
+platform :ios do
+  private_lane :connect_api_key do
+    UI.user_error!("Missing App Store Connect API key at #{KEY_PATH}") unless File.file?(KEY_PATH)
+    app_store_connect_api_key(
+      key_id: KEY_ID,
+      issuer_id: ISSUER_ID,
+      key_filepath: KEY_PATH
+    )
+  end
+
+  private_lane :ensure_bundle_id do |options|
+    identifier = options.fetch(:identifier)
+    Spaceship::ConnectAPI::BundleId.find(identifier) ||
+      Spaceship::ConnectAPI::BundleId.create(
+        name: options.fetch(:name),
+        platform: "IOS",
+        identifier: identifier
+      )
+  end
+
+  private_lane :ensure_capability do |options|
+    bundle = options.fetch(:bundle)
+    capability_type = options.fetch(:capability_type)
+    next if bundle.get_capabilities.any? { |capability| capability.is_type?(capability_type) }
+
+    bundle.create_capability(
+      capability_type,
+      settings: options.fetch(:settings, [])
+    )
+  end
+
+  private_lane :ensure_portal_configuration do
+    connect_api_key
+
+    app_bundle = ensure_bundle_id(
+      name: "Voy",
+      identifier: APP_IDENTIFIER
+    )
+    ensure_capability(
+      bundle: app_bundle,
+      capability_type: Spaceship::ConnectAPI::BundleIdCapability::Type::ICLOUD,
+      settings: [
+        {
+          key: Spaceship::ConnectAPI::BundleIdCapability::Settings::ICLOUD_VERSION,
+          options: [
+            { key: Spaceship::ConnectAPI::BundleIdCapability::Options::XCODE_5 }
+          ]
+        }
+      ]
+    )
+    ensure_capability(
+      bundle: app_bundle,
+      capability_type: Spaceship::ConnectAPI::BundleIdCapability::Type::PUSH_NOTIFICATIONS
+    )
+
+    Spaceship::Portal.login(PORTAL_USER)
+    Spaceship::Portal.select_team(team_id: TEAM_ID)
+    cloud_container = Spaceship::Portal::CloudContainer.find(CLOUD_CONTAINER_IDENTIFIER) ||
+      Spaceship::Portal::CloudContainer.create!(
+        identifier: CLOUD_CONTAINER_IDENTIFIER,
+        name: "Voy"
+      )
+    portal_app = Spaceship::Portal::App.find(APP_IDENTIFIER)
+    UI.user_error!("Missing Developer Portal App ID #{APP_IDENTIFIER}") unless portal_app
+    associated_containers = portal_app.details.associated_cloud_containers || []
+    unless associated_containers.any? { |container| container.identifier == CLOUD_CONTAINER_IDENTIFIER }
+      portal_app.associate_cloud_containers(associated_containers + [cloud_container])
+    end
+
+    Spaceship::ConnectAPI.login(
+      PORTAL_USER,
+      nil,
+      use_portal: false,
+      use_tunes: true
+    )
+    unless Spaceship::ConnectAPI::App.find(APP_IDENTIFIER)
+      Spaceship::ConnectAPI::App.create(
+        name: "Voy",
+        version_string: APP_VERSION,
+        sku: "voy-ios",
+        primary_locale: "en-US",
+        bundle_id: APP_IDENTIFIER,
+        platforms: [Spaceship::ConnectAPI::Platform::IOS]
+      )
+    end
+  end
+
+  desc "Create the App ID, CloudKit container, capabilities, and App Store Connect record"
+  lane :setup do
+    ensure_portal_configuration
+  end
+
+  desc "Create or download the App Store provisioning profile"
+  lane :signing do
+    setup
+    api_key = connect_api_key
+    FileUtils.mkdir_p("fastlane/build/profiles")
+    get_provisioning_profile(
+      api_key: api_key,
+      app_identifier: APP_IDENTIFIER,
+      provisioning_name: APP_PROFILE,
+      ignore_profiles_with_different_name: false,
+      force: ENV["FORCE_SIGNING_PROFILES"] == "1",
+      output_path: "fastlane/build/profiles",
+      filename: "Voy.mobileprovision"
+    )
+    lane_context[SharedValues::SIGH_NAME]
+  end
+
+  desc "Archive and export a signed App Store Connect IPA"
+  lane :build do
+    profile_name = signing
+    api_key = connect_api_key
+    build_number = latest_testflight_build_number(
+      api_key: api_key,
+      app_identifier: APP_IDENTIFIER,
+      version: APP_VERSION,
+      initial_build_number: 0
+    ) + 1
+    versioned_signing_args = [
+      SIGNING_ARGS,
+      "CURRENT_PROJECT_VERSION='#{build_number}'",
+      "VOY_APP_PROFILE='#{profile_name}'"
+    ].join(" ")
+
+    build_app(
+      project: "Voy.xcodeproj",
+      scheme: "Voy",
+      configuration: "Release",
+      export_method: "app-store",
+      output_directory: "fastlane/build",
+      output_name: "Voy",
+      clean: true,
+      xcargs: versioned_signing_args,
+      export_xcargs: SIGNING_ARGS,
+      export_options: {
+        method: "app-store",
+        signingStyle: "manual",
+        teamID: TEAM_ID,
+        iCloudContainerEnvironment: "Production",
+        provisioningProfiles: {
+          APP_IDENTIFIER => profile_name
+        }
+      }
+    )
+  end
+
+  desc "Upload the exported IPA to TestFlight and wait for processing"
+  lane :upload do
+    api_key = connect_api_key
+    upload_to_testflight(
+      api_key: api_key,
+      ipa: "fastlane/build/Voy.ipa",
+      skip_submission: true,
+      skip_waiting_for_build_processing: false,
+      distribute_external: false
+    )
+  end
+
+  desc "Build and upload Voy to TestFlight"
+  lane :beta do
+    build
+    upload
+  end
+end

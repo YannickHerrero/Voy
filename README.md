@@ -37,6 +37,16 @@ Voy is a private, offline-first inventory, minimalism, and trip-packing app for 
 
 Before distributing a production build, deploy the CloudKit development schema to production in CloudKit Console. User data is stored in each user's private CloudKit database.
 
+## TestFlight
+
+TestFlight delivery uses Fastlane and an App Store Connect API key stored outside the repository:
+
+```sh
+fastlane ios beta
+```
+
+The release lane provisions the App ID and CloudKit container, selects the next build number, exports with the production CloudKit environment, uploads the universal app, and waits for processing. See [`fastlane/README.md`](fastlane/README.md) for credential setup and individual release stages.
+
 ## Verification
 
 Run the unit test suite on an available simulator:
