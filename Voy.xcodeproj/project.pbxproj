@@ -17,7 +17,9 @@
 		42881AC2F131971916C70FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E795D2F0760E758049CE9D4 /* Assets.xcassets */; };
 		55B2424E3DE4D36F958CDDC3 /* InventoryItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130007479BBD0F4D533EA003 /* InventoryItemDetailView.swift */; };
 		5C1A5696E41896209F5AC6DB /* DataSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD26EA2B83129B2169E7C85 /* DataSchema.swift */; };
+		60F0F0F76A5D5FC092DEFE0B /* PhotoNormalizationPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30FCA7378281DE4BC86861 /* PhotoNormalizationPreview.swift */; };
 		65651F57268C5CE269B4141E /* SyncStatusBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461CBD98670CCE2817FD93DC /* SyncStatusBanner.swift */; };
+		6DD93BF22FCBFE6A69C3CAAF /* PhotoNormalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF11332A792E433D6D35389 /* PhotoNormalizer.swift */; };
 		7FE70B05A4C08BB5DC2A5A03 /* InventoryCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5B05AAEA2088D992170E0 /* InventoryCalculations.swift */; };
 		89DC48BA9B4EDC2744AFAE7C /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40961D107237757B99F8C3A /* AppTabView.swift */; };
 		93E9C074C5FD6252FBF528DF /* InventoryCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF0435EC71CD75964617D6E /* InventoryCalculationsTests.swift */; };
@@ -47,6 +49,7 @@
 		05BF370C389D5C70159C884E /* VoyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyApp.swift; sourceTree = "<group>"; };
 		130007479BBD0F4D533EA003 /* InventoryItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItemDetailView.swift; sourceTree = "<group>"; };
 		17676A1E2A3E5D4CDC1A8281 /* ImageFileProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileProcessor.swift; sourceTree = "<group>"; };
+		1B30FCA7378281DE4BC86861 /* PhotoNormalizationPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNormalizationPreview.swift; sourceTree = "<group>"; };
 		1DC41BBB5CC2A135BC0DB5F8 /* InventoryItemEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItemEditorView.swift; sourceTree = "<group>"; };
 		1E330E8FF4C4A2229CA7673E /* InventoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryModels.swift; sourceTree = "<group>"; };
 		20DCDDBE2560613C0C300B31 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 		461CBD98670CCE2817FD93DC /* SyncStatusBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatusBanner.swift; sourceTree = "<group>"; };
 		4EF3E79F71A77D30783499BE /* VoyTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VoyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AC89692550F9CCB830C250F /* DataSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSeeder.swift; sourceTree = "<group>"; };
+		5CF11332A792E433D6D35389 /* PhotoNormalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNormalizer.swift; sourceTree = "<group>"; };
 		5E5DFCB02F94245EC3A5EFF3 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
 		6E795D2F0760E758049CE9D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		717CE3145B3DBA565BECC0B6 /* PackingCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingCalculations.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 				1DC41BBB5CC2A135BC0DB5F8 /* InventoryItemEditorView.swift */,
 				C3100F5D24C412646EAB53C1 /* InventoryTaxonomyView.swift */,
 				A7907F2382C882A03235A059 /* InventoryView.swift */,
+				1B30FCA7378281DE4BC86861 /* PhotoNormalizationPreview.swift */,
 			);
 			path = Inventory;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 			children = (
 				5E5DFCB02F94245EC3A5EFF3 /* CameraPicker.swift */,
 				17676A1E2A3E5D4CDC1A8281 /* ImageFileProcessor.swift */,
+				5CF11332A792E433D6D35389 /* PhotoNormalizer.swift */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -310,6 +316,8 @@
 				20C58E58EA937523E7D0A53E /* MinimalismModels.swift in Sources */,
 				3B878D957148F20FF8E38539 /* PackingCalculations.swift in Sources */,
 				158AC3E0ECCF274027AF1B12 /* PackingModels.swift in Sources */,
+				60F0F0F76A5D5FC092DEFE0B /* PhotoNormalizationPreview.swift in Sources */,
+				6DD93BF22FCBFE6A69C3CAAF /* PhotoNormalizer.swift in Sources */,
 				1FBA9ADED7986C5B043E15F4 /* StoredImageView.swift in Sources */,
 				65651F57268C5CE269B4141E /* SyncStatusBanner.swift in Sources */,
 				0877D593327B6ABA74F4433F /* VoyApp.swift in Sources */,

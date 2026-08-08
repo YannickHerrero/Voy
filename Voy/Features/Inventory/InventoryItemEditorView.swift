@@ -17,6 +17,7 @@ struct InventoryItemEditorView: View {
     @State private var showsCamera = false
     @State private var showsPhotoLibrary = false
     @State private var selectedPhotoItem: PhotosPickerItem?
+    @State private var pendingPhoto: PhotoProcessingResult?
     @State private var isPreparingImage = false
     @FocusState private var focusedField: Field?
 
@@ -49,7 +50,7 @@ struct InventoryItemEditorView: View {
                                 .aspectRatio(1, contentMode: .fit)
 
                             if isPreparingImage {
-                                ProgressView("Preparing photo…")
+                                ProgressView("Removing background…")
                                     .padding(12)
                                     .frame(maxWidth: .infinity)
                                     .background(.regularMaterial)
@@ -178,6 +179,11 @@ struct InventoryItemEditorView: View {
                 }
                 .ignoresSafeArea()
             }
+            .sheet(item: $pendingPhoto) { result in
+                PhotoNormalizationPreview(result: result) { image in
+                    apply(image)
+                }
+            }
             .onChange(of: selectedPhotoItem) { _, newItem in
                 guard let newItem else { return }
                 prepareLibraryPhoto(newItem)
@@ -210,7 +216,7 @@ struct InventoryItemEditorView: View {
                 guard let data = try await item.loadTransferable(type: Data.self) else {
                     throw ImageFileProcessor.ProcessingError.unreadableImage
                 }
-                apply(try await ImageFileProcessor.prepare(data))
+                pendingPhoto = try await PhotoNormalizer.process(data)
             } catch {
                 errorMessage = "That photo could not be opened. Try choosing another image."
             }
@@ -226,7 +232,7 @@ struct InventoryItemEditorView: View {
         Task {
             defer { isPreparingImage = false }
             do {
-                apply(try await ImageFileProcessor.prepare(data))
+                pendingPhoto = try await PhotoNormalizer.process(data)
             } catch {
                 errorMessage = "That photo could not be prepared. Please take it again."
             }
