@@ -8,6 +8,7 @@ struct InventoryItemEditorView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \InventoryCategory.sortOrder) private var categories: [InventoryCategory]
     @Query(sort: \InventoryCollection.name) private var collections: [InventoryCollection]
+    @Query private var items: [InventoryItem]
 
     let item: InventoryItem?
     @State private var draft: Draft
@@ -314,6 +315,8 @@ struct InventoryItemEditorView: View {
         }
 
         do {
+            let currentItems = items.contains(where: { $0.id == target.id }) ? items : items + [target]
+            _ = try InventoryHistoryRecorder.record(items: currentItems, in: modelContext)
             try modelContext.save()
             dismiss()
         } catch {

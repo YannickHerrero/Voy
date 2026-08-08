@@ -15,6 +15,7 @@
 		20C58E58EA937523E7D0A53E /* MinimalismModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682D6E1B2DA2233DA24D006 /* MinimalismModels.swift */; };
 		2396E335C180450858E49DBC /* PackingCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */; };
 		3A66DBC9F6D1B645AFBAD795 /* PackingSessionFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4586943771F11FC1D971A /* PackingSessionFactoryTests.swift */; };
+		3B47A3387A142E4D61CD2F60 /* InventoryHistoryRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB7FD616EA929A20E66C24 /* InventoryHistoryRecorder.swift */; };
 		3B878D957148F20FF8E38539 /* PackingCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CE3145B3DBA565BECC0B6 /* PackingCalculations.swift */; };
 		42881AC2F131971916C70FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E795D2F0760E758049CE9D4 /* Assets.xcassets */; };
 		4564E08F81D82B157F64A4E0 /* OnlineImageBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7E8AB5F03C6900A4B2A432 /* OnlineImageBrowserView.swift */; };
@@ -38,6 +39,7 @@
 		D0D4982D2BA6A10973C3F0CD /* PackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B30351DDF2BBF1DB00134A2 /* PackingView.swift */; };
 		D192DD218BF086A0C23D7180 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7907F2382C882A03235A059 /* InventoryView.swift */; };
 		D91B57BAD7E90FCFCB3858C8 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5DFCB02F94245EC3A5EFF3 /* CameraPicker.swift */; };
+		D97910B3CFF5E8E677DD34C8 /* InventoryHistoryRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B413D569F0DF37C5D4FC34F /* InventoryHistoryRecorderTests.swift */; };
 		E12CF229C0B054D5D2A69EF5 /* InventoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E330E8FF4C4A2229CA7673E /* InventoryModels.swift */; };
 		E44EE25D791705A7A8E0690C /* DataSchemaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1572C4EE7CED1E415783EE9 /* DataSchemaTests.swift */; };
 		E5C1610B7CB5417E0573AA09 /* ImageFileProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17676A1E2A3E5D4CDC1A8281 /* ImageFileProcessor.swift */; };
@@ -86,6 +88,8 @@
 		64098A6FA25D77C0547F5AE6 /* StartPackingSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPackingSessionView.swift; sourceTree = "<group>"; };
 		6E795D2F0760E758049CE9D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		717CE3145B3DBA565BECC0B6 /* PackingCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingCalculations.swift; sourceTree = "<group>"; };
+		75CB7FD616EA929A20E66C24 /* InventoryHistoryRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryHistoryRecorder.swift; sourceTree = "<group>"; };
+		8B413D569F0DF37C5D4FC34F /* InventoryHistoryRecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryHistoryRecorderTests.swift; sourceTree = "<group>"; };
 		A7907F2382C882A03235A059 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		ACD26EA2B83129B2169E7C85 /* DataSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSchema.swift; sourceTree = "<group>"; };
 		AFF0435EC71CD75964617D6E /* InventoryCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCalculationsTests.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				03E5B05AAEA2088D992170E0 /* InventoryCalculations.swift */,
+				75CB7FD616EA929A20E66C24 /* InventoryHistoryRecorder.swift */,
 				717CE3145B3DBA565BECC0B6 /* PackingCalculations.swift */,
 				2E3EA70F4086C37F59D03993 /* PackingSessionFactory.swift */,
 			);
@@ -194,6 +199,7 @@
 				B1572C4EE7CED1E415783EE9 /* DataSchemaTests.swift */,
 				2A225337936253C2F1F5B6F6 /* ImageFileProcessorTests.swift */,
 				AFF0435EC71CD75964617D6E /* InventoryCalculationsTests.swift */,
+				8B413D569F0DF37C5D4FC34F /* InventoryHistoryRecorderTests.swift */,
 				2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */,
 				05E4586943771F11FC1D971A /* PackingSessionFactoryTests.swift */,
 				F3CF291771F745A2CFD661BF /* WebImageCandidateTests.swift */,
@@ -308,7 +314,7 @@
 					413B68B09BB9BFDDB66164B8 = {
 						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
-						SystemCapabilities = "[\"com.apple.iCloud\": [\"enabled\": 1], \"com.apple.Push\": [\"enabled\": 1]]";
+						SystemCapabilities = "[\"com.apple.Push\": [\"enabled\": 1], \"com.apple.iCloud\": [\"enabled\": 1]]";
 					};
 				};
 			};
@@ -355,6 +361,7 @@
 				9ADFE4D52543C72F79DBC088 /* DataSeeder.swift in Sources */,
 				E5C1610B7CB5417E0573AA09 /* ImageFileProcessor.swift in Sources */,
 				7FE70B05A4C08BB5DC2A5A03 /* InventoryCalculations.swift in Sources */,
+				3B47A3387A142E4D61CD2F60 /* InventoryHistoryRecorder.swift in Sources */,
 				55B2424E3DE4D36F958CDDC3 /* InventoryItemDetailView.swift in Sources */,
 				FA80BAE85D69AE364939ED59 /* InventoryItemEditorView.swift in Sources */,
 				F7A0C3817F10866C9C0E9DEE /* InventoryItemPickerView.swift in Sources */,
@@ -389,6 +396,7 @@
 				E44EE25D791705A7A8E0690C /* DataSchemaTests.swift in Sources */,
 				CBDCCFDDB057FCDCB9367B88 /* ImageFileProcessorTests.swift in Sources */,
 				93E9C074C5FD6252FBF528DF /* InventoryCalculationsTests.swift in Sources */,
+				D97910B3CFF5E8E677DD34C8 /* InventoryHistoryRecorderTests.swift in Sources */,
 				2396E335C180450858E49DBC /* PackingCalculationsTests.swift in Sources */,
 				3A66DBC9F6D1B645AFBAD795 /* PackingSessionFactoryTests.swift in Sources */,
 				AED5442697937F8C95E62560 /* WebImageCandidateTests.swift in Sources */,

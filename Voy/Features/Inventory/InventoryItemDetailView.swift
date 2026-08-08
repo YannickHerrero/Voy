@@ -5,6 +5,7 @@ struct InventoryItemDetailView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \InventoryCategory.sortOrder) private var categories: [InventoryCategory]
     @Query(sort: \InventoryCollection.name) private var collections: [InventoryCollection]
+    @Query private var items: [InventoryItem]
 
     let item: InventoryItem
     @State private var showsEditor = false
@@ -164,6 +165,7 @@ struct InventoryItemDetailView: View {
         item.status = status
         item.touch()
         do {
+            _ = try InventoryHistoryRecorder.record(items: items, in: modelContext)
             try modelContext.save()
         } catch {
             item.status = previousStatus

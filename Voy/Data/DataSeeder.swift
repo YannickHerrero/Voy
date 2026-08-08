@@ -38,6 +38,11 @@ enum DataSeeder {
             didChange = true
         }
 
+        let items = try context.fetch(FetchDescriptor<InventoryItem>())
+        if try InventoryHistoryRecorder.record(items: items, in: context) {
+            didChange = true
+        }
+
         if didChange {
             try context.save()
         }
