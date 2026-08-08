@@ -28,4 +28,16 @@ targets:
         INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: true
         SUPPORTS_MACCATALYST: false
     scheme:
-      testTargets: []
+      testTargets:
+        - VoyTests
+  VoyTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: VoyTests
+    dependencies:
+      - target: Voy
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.yannickherrero.voy.tests
+        GENERATE_INFOPLIST_FILE: true

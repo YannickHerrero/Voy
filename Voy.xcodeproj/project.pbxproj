@@ -8,18 +8,60 @@
 
 /* Begin PBXBuildFile section */
 		0877D593327B6ABA74F4433F /* VoyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BF370C389D5C70159C884E /* VoyApp.swift */; };
+		158AC3E0ECCF274027AF1B12 /* PackingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3C4139255656A9DABD4FEE /* PackingModels.swift */; };
+		20C58E58EA937523E7D0A53E /* MinimalismModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682D6E1B2DA2233DA24D006 /* MinimalismModels.swift */; };
+		2396E335C180450858E49DBC /* PackingCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */; };
+		3B878D957148F20FF8E38539 /* PackingCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CE3145B3DBA565BECC0B6 /* PackingCalculations.swift */; };
 		42881AC2F131971916C70FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E795D2F0760E758049CE9D4 /* Assets.xcassets */; };
+		7FE70B05A4C08BB5DC2A5A03 /* InventoryCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5B05AAEA2088D992170E0 /* InventoryCalculations.swift */; };
 		89DC48BA9B4EDC2744AFAE7C /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40961D107237757B99F8C3A /* AppTabView.swift */; };
+		93E9C074C5FD6252FBF528DF /* InventoryCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF0435EC71CD75964617D6E /* InventoryCalculationsTests.swift */; };
+		E12CF229C0B054D5D2A69EF5 /* InventoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E330E8FF4C4A2229CA7673E /* InventoryModels.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D3F40168D25DF3903CAC2160 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81629DB1D2E6BAE17BA9CD6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 413B68B09BB9BFDDB66164B8;
+			remoteInfo = Voy;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		03E5B05AAEA2088D992170E0 /* InventoryCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCalculations.swift; sourceTree = "<group>"; };
 		05BF370C389D5C70159C884E /* VoyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyApp.swift; sourceTree = "<group>"; };
+		1E330E8FF4C4A2229CA7673E /* InventoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryModels.swift; sourceTree = "<group>"; };
+		2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingCalculationsTests.swift; sourceTree = "<group>"; };
+		2F3C4139255656A9DABD4FEE /* PackingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingModels.swift; sourceTree = "<group>"; };
+		4EF3E79F71A77D30783499BE /* VoyTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VoyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E795D2F0760E758049CE9D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		717CE3145B3DBA565BECC0B6 /* PackingCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingCalculations.swift; sourceTree = "<group>"; };
+		AFF0435EC71CD75964617D6E /* InventoryCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCalculationsTests.swift; sourceTree = "<group>"; };
+		B682D6E1B2DA2233DA24D006 /* MinimalismModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalismModels.swift; sourceTree = "<group>"; };
 		CE7F560DD7DD5751C2F2491D /* Voy.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Voy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40961D107237757B99F8C3A /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		2AF7B6726267FE1DA8C480B4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5FC260F31DD816A3B1C4355B /* Models */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3A9AF6761F63897D2A146308 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				03E5B05AAEA2088D992170E0 /* InventoryCalculations.swift */,
+				717CE3145B3DBA565BECC0B6 /* PackingCalculations.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		536B3A839394036BE257F462 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -33,15 +75,37 @@
 			isa = PBXGroup;
 			children = (
 				536B3A839394036BE257F462 /* App */,
+				2AF7B6726267FE1DA8C480B4 /* Data */,
+				3A9AF6761F63897D2A146308 /* Domain */,
 				A5973367CA10F5BA05D21DCE /* Resources */,
 			);
 			path = Voy;
+			sourceTree = "<group>";
+		};
+		5FC260F31DD816A3B1C4355B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1E330E8FF4C4A2229CA7673E /* InventoryModels.swift */,
+				B682D6E1B2DA2233DA24D006 /* MinimalismModels.swift */,
+				2F3C4139255656A9DABD4FEE /* PackingModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6C9CB254AA9160C64040A98F /* VoyTests */ = {
+			isa = PBXGroup;
+			children = (
+				AFF0435EC71CD75964617D6E /* InventoryCalculationsTests.swift */,
+				2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */,
+			);
+			path = VoyTests;
 			sourceTree = "<group>";
 		};
 		882A5A0A4623BB95A430F9CD = {
 			isa = PBXGroup;
 			children = (
 				5E100CE43CFEB08BC00061AA /* Voy */,
+				6C9CB254AA9160C64040A98F /* VoyTests */,
 				CA4AB36CD7E38DEFCE2322F4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				CE7F560DD7DD5751C2F2491D /* Voy.app */,
+				4EF3E79F71A77D30783499BE /* VoyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,6 +130,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1ABC426DAAAC1C18FB6E5430 /* VoyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A91758F6222B24497B615B28 /* Build configuration list for PBXNativeTarget "VoyTests" */;
+			buildPhases = (
+				F02070461B3E79916CB32927 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0250BCE4E0B71118F9C286FF /* PBXTargetDependency */,
+			);
+			name = VoyTests;
+			packageProductDependencies = (
+			);
+			productName = VoyTests;
+			productReference = 4EF3E79F71A77D30783499BE /* VoyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		413B68B09BB9BFDDB66164B8 /* Voy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2B63C714AFE85F3CA91034A /* Build configuration list for PBXNativeTarget "Voy" */;
@@ -92,6 +175,10 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					1ABC426DAAAC1C18FB6E5430 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
 					413B68B09BB9BFDDB66164B8 = {
 						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
@@ -113,6 +200,7 @@
 			projectRoot = "";
 			targets = (
 				413B68B09BB9BFDDB66164B8 /* Voy */,
+				1ABC426DAAAC1C18FB6E5430 /* VoyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -134,11 +222,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				89DC48BA9B4EDC2744AFAE7C /* AppTabView.swift in Sources */,
+				7FE70B05A4C08BB5DC2A5A03 /* InventoryCalculations.swift in Sources */,
+				E12CF229C0B054D5D2A69EF5 /* InventoryModels.swift in Sources */,
+				20C58E58EA937523E7D0A53E /* MinimalismModels.swift in Sources */,
+				3B878D957148F20FF8E38539 /* PackingCalculations.swift in Sources */,
+				158AC3E0ECCF274027AF1B12 /* PackingModels.swift in Sources */,
 				0877D593327B6ABA74F4433F /* VoyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F02070461B3E79916CB32927 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93E9C074C5FD6252FBF528DF /* InventoryCalculationsTests.swift in Sources */,
+				2396E335C180450858E49DBC /* PackingCalculationsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0250BCE4E0B71118F9C286FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 413B68B09BB9BFDDB66164B8 /* Voy */;
+			targetProxy = D3F40168D25DF3903CAC2160 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		37C13C9734A2A91DDC758E0D /* Release */ = {
@@ -270,6 +380,23 @@
 			};
 			name = Debug;
 		};
+		C1DB50B56972FA3723E98B02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickherrero.voy.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voy.app/Voy";
+			};
+			name = Release;
+		};
 		C34BF8E19BE594625151AB9D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -290,6 +417,23 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
+		};
+		D62EC8B64838B0E895CBFC1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickherrero.voy.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voy.app/Voy";
+			};
+			name = Debug;
 		};
 		E94D7112108EEB76F5E3FD17 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -320,6 +464,15 @@
 			buildConfigurations = (
 				BBCDA00952E1326709EF0A0E /* Debug */,
 				37C13C9734A2A91DDC758E0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A91758F6222B24497B615B28 /* Build configuration list for PBXNativeTarget "VoyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D62EC8B64838B0E895CBFC1E /* Debug */,
+				C1DB50B56972FA3723E98B02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
