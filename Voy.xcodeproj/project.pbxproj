@@ -25,6 +25,7 @@
 		E12CF229C0B054D5D2A69EF5 /* InventoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E330E8FF4C4A2229CA7673E /* InventoryModels.swift */; };
 		E44EE25D791705A7A8E0690C /* DataSchemaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1572C4EE7CED1E415783EE9 /* DataSchemaTests.swift */; };
 		F5B81444A3115CBEE4905988 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCDDBE2560613C0C300B31 /* AppState.swift */; };
+		FA80BAE85D69AE364939ED59 /* InventoryItemEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC41BBB5CC2A135BC0DB5F8 /* InventoryItemEditorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		03E5B05AAEA2088D992170E0 /* InventoryCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCalculations.swift; sourceTree = "<group>"; };
 		05BF370C389D5C70159C884E /* VoyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyApp.swift; sourceTree = "<group>"; };
 		130007479BBD0F4D533EA003 /* InventoryItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItemDetailView.swift; sourceTree = "<group>"; };
+		1DC41BBB5CC2A135BC0DB5F8 /* InventoryItemEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItemEditorView.swift; sourceTree = "<group>"; };
 		1E330E8FF4C4A2229CA7673E /* InventoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryModels.swift; sourceTree = "<group>"; };
 		20DCDDBE2560613C0C300B31 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingCalculationsTests.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				130007479BBD0F4D533EA003 /* InventoryItemDetailView.swift */,
+				1DC41BBB5CC2A135BC0DB5F8 /* InventoryItemEditorView.swift */,
 				A7907F2382C882A03235A059 /* InventoryView.swift */,
 			);
 			path = Inventory;
@@ -278,6 +281,7 @@
 				9ADFE4D52543C72F79DBC088 /* DataSeeder.swift in Sources */,
 				7FE70B05A4C08BB5DC2A5A03 /* InventoryCalculations.swift in Sources */,
 				55B2424E3DE4D36F958CDDC3 /* InventoryItemDetailView.swift in Sources */,
+				FA80BAE85D69AE364939ED59 /* InventoryItemEditorView.swift in Sources */,
 				E12CF229C0B054D5D2A69EF5 /* InventoryModels.swift in Sources */,
 				D192DD218BF086A0C23D7180 /* InventoryView.swift in Sources */,
 				20C58E58EA937523E7D0A53E /* MinimalismModels.swift in Sources */,

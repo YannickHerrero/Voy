@@ -10,6 +10,7 @@ struct InventoryView: View {
     @State private var selectedCategoryID: UUID?
     @State private var selectedCollectionID: UUID?
     @State private var selectedStatus: ItemStatus? = .owned
+    @State private var showsItemEditor = false
 
     private let columns = [GridItem(.adaptive(minimum: 142, maximum: 230), spacing: 20)]
 
@@ -33,11 +34,14 @@ struct InventoryView: View {
     var body: some View {
         Group {
             if items.isEmpty {
-                ContentUnavailableView(
-                    "A lighter life starts here",
-                    systemImage: "square.grid.2x2",
-                    description: Text("Add a possession with a photo, name, and category.")
-                )
+                ContentUnavailableView {
+                    Label("A lighter life starts here", systemImage: "square.grid.2x2")
+                } description: {
+                    Text("Add a possession with a photo, name, and category.")
+                } actions: {
+                    Button("Add Item") { showsItemEditor = true }
+                        .buttonStyle(.borderedProminent)
+                }
             } else if filteredItems.isEmpty {
                 ContentUnavailableView {
                     Label("Nothing found", systemImage: "magnifyingglass")
@@ -66,6 +70,18 @@ struct InventoryView: View {
         }
         .navigationTitle("Inventory")
         .searchable(text: $searchText, prompt: "Search possessions")
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    showsItemEditor = true
+                } label: {
+                    Label("Add Item", systemImage: "plus")
+                }
+            }
+        }
+        .sheet(isPresented: $showsItemEditor) {
+            InventoryItemEditorView()
+        }
         .safeAreaInset(edge: .top, spacing: 0) {
             InventoryFilterBar(
                 categories: categories,
