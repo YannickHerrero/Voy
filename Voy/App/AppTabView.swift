@@ -4,15 +4,24 @@ import SwiftUI
 struct AppTabView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(AppState.self) private var appState
+    @State private var selection: AppTab
+
+    init() {
+        let arguments = ProcessInfo.processInfo.arguments
+        let requestedTab = arguments.firstIndex(of: "-InitialTab")
+            .flatMap { index in arguments.indices.contains(index + 1) ? AppTab(rawValue: arguments[index + 1]) : nil }
+        _selection = State(initialValue: requestedTab ?? .inventory)
+    }
 
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
             NavigationStack {
                 InventoryView()
             }
             .tabItem {
                 Label("Inventory", systemImage: "square.grid.2x2")
             }
+            .tag(AppTab.inventory)
 
             NavigationStack {
                 PackingView()
@@ -20,6 +29,7 @@ struct AppTabView: View {
             .tabItem {
                 Label("Packing", systemImage: "suitcase")
             }
+            .tag(AppTab.packing)
 
             NavigationStack {
                 MinimalismView()
@@ -27,7 +37,9 @@ struct AppTabView: View {
             .tabItem {
                 Label("Minimalism", systemImage: "leaf")
             }
+            .tag(AppTab.minimalism)
         }
+        .tabViewStyle(.sidebarAdaptable)
         .safeAreaInset(edge: .top, spacing: 0) {
             SyncStatusBanner()
         }
@@ -38,14 +50,10 @@ struct AppTabView: View {
     }
 }
 
-private struct PlaceholderView: View {
-    let title: String
-    let symbol: String
-    let message: String
-
-    var body: some View {
-        ContentUnavailableView(title, systemImage: symbol, description: Text(message))
-    }
+private enum AppTab: String {
+    case inventory
+    case packing
+    case minimalism
 }
 
 #Preview {

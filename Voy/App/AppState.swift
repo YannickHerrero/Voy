@@ -20,8 +20,12 @@ final class AppState {
 
     init() {
         let environment = ProcessInfo.processInfo.environment
-        skipsCloudChecks = environment["XCTestConfigurationFilePath"] != nil
+        var shouldSkipCloud = environment["XCTestConfigurationFilePath"] != nil
             || environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
+#if DEBUG
+        shouldSkipCloud = shouldSkipCloud || ProcessInfo.processInfo.arguments.contains("-UseLocalStore")
+#endif
+        skipsCloudChecks = shouldSkipCloud
 
         if skipsCloudChecks {
             do {
@@ -67,6 +71,9 @@ final class AppState {
 
         do {
             try DataSeeder.seedIfNeeded(in: context)
+#if DEBUG
+            try DebugSampleData.seedIfRequested(in: context)
+#endif
         } catch {
             persistenceNotice = "Voy could not finish preparing your library. You can continue and try again later."
         }
