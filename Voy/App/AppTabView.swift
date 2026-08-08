@@ -1,6 +1,10 @@
+import SwiftData
 import SwiftUI
 
 struct AppTabView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Environment(AppState.self) private var appState
+
     var body: some View {
         TabView {
             NavigationStack {
@@ -39,6 +43,13 @@ struct AppTabView: View {
                 Label("Minimalism", systemImage: "leaf")
             }
         }
+        .safeAreaInset(edge: .top, spacing: 0) {
+            SyncStatusBanner()
+        }
+        .task {
+            appState.bootstrapIfNeeded(using: modelContext)
+            await appState.refreshCloudStatus()
+        }
     }
 }
 
@@ -53,5 +64,8 @@ private struct PlaceholderView: View {
 }
 
 #Preview {
+    let state = AppState()
     AppTabView()
+        .environment(state)
+        .modelContainer(state.modelContainer)
 }

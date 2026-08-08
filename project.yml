@@ -18,9 +18,16 @@ targets:
     platform: iOS
     sources:
       - path: Voy
+    attributes:
+      SystemCapabilities:
+        com.apple.iCloud:
+          enabled: 1
+        com.apple.Push:
+          enabled: 1
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.yannickherrero.voy
+        CODE_SIGN_ENTITLEMENTS: Voy/Voy.entitlements
         GENERATE_INFOPLIST_FILE: true
         INFOPLIST_KEY_CFBundleDisplayName: Voy
         INFOPLIST_KEY_UILaunchScreen_Generation: true

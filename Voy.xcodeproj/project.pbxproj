@@ -13,10 +13,15 @@
 		2396E335C180450858E49DBC /* PackingCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */; };
 		3B878D957148F20FF8E38539 /* PackingCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CE3145B3DBA565BECC0B6 /* PackingCalculations.swift */; };
 		42881AC2F131971916C70FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E795D2F0760E758049CE9D4 /* Assets.xcassets */; };
+		5C1A5696E41896209F5AC6DB /* DataSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD26EA2B83129B2169E7C85 /* DataSchema.swift */; };
+		65651F57268C5CE269B4141E /* SyncStatusBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461CBD98670CCE2817FD93DC /* SyncStatusBanner.swift */; };
 		7FE70B05A4C08BB5DC2A5A03 /* InventoryCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5B05AAEA2088D992170E0 /* InventoryCalculations.swift */; };
 		89DC48BA9B4EDC2744AFAE7C /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40961D107237757B99F8C3A /* AppTabView.swift */; };
 		93E9C074C5FD6252FBF528DF /* InventoryCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF0435EC71CD75964617D6E /* InventoryCalculationsTests.swift */; };
+		9ADFE4D52543C72F79DBC088 /* DataSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC89692550F9CCB830C250F /* DataSeeder.swift */; };
 		E12CF229C0B054D5D2A69EF5 /* InventoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E330E8FF4C4A2229CA7673E /* InventoryModels.swift */; };
+		E44EE25D791705A7A8E0690C /* DataSchemaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1572C4EE7CED1E415783EE9 /* DataSchemaTests.swift */; };
+		F5B81444A3115CBEE4905988 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCDDBE2560613C0C300B31 /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,12 +38,18 @@
 		03E5B05AAEA2088D992170E0 /* InventoryCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCalculations.swift; sourceTree = "<group>"; };
 		05BF370C389D5C70159C884E /* VoyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyApp.swift; sourceTree = "<group>"; };
 		1E330E8FF4C4A2229CA7673E /* InventoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryModels.swift; sourceTree = "<group>"; };
+		20DCDDBE2560613C0C300B31 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingCalculationsTests.swift; sourceTree = "<group>"; };
 		2F3C4139255656A9DABD4FEE /* PackingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingModels.swift; sourceTree = "<group>"; };
+		327D763BF788FEA8249E8B03 /* Voy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Voy.entitlements; sourceTree = "<group>"; };
+		461CBD98670CCE2817FD93DC /* SyncStatusBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatusBanner.swift; sourceTree = "<group>"; };
 		4EF3E79F71A77D30783499BE /* VoyTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VoyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AC89692550F9CCB830C250F /* DataSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSeeder.swift; sourceTree = "<group>"; };
 		6E795D2F0760E758049CE9D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		717CE3145B3DBA565BECC0B6 /* PackingCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingCalculations.swift; sourceTree = "<group>"; };
+		ACD26EA2B83129B2169E7C85 /* DataSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSchema.swift; sourceTree = "<group>"; };
 		AFF0435EC71CD75964617D6E /* InventoryCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCalculationsTests.swift; sourceTree = "<group>"; };
+		B1572C4EE7CED1E415783EE9 /* DataSchemaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSchemaTests.swift; sourceTree = "<group>"; };
 		B682D6E1B2DA2233DA24D006 /* MinimalismModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalismModels.swift; sourceTree = "<group>"; };
 		CE7F560DD7DD5751C2F2491D /* Voy.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Voy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40961D107237757B99F8C3A /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
@@ -48,6 +59,8 @@
 		2AF7B6726267FE1DA8C480B4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				ACD26EA2B83129B2169E7C85 /* DataSchema.swift */,
+				5AC89692550F9CCB830C250F /* DataSeeder.swift */,
 				5FC260F31DD816A3B1C4355B /* Models */,
 			);
 			path = Data;
@@ -65,7 +78,9 @@
 		536B3A839394036BE257F462 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				20DCDDBE2560613C0C300B31 /* AppState.swift */,
 				D40961D107237757B99F8C3A /* AppTabView.swift */,
+				461CBD98670CCE2817FD93DC /* SyncStatusBanner.swift */,
 				05BF370C389D5C70159C884E /* VoyApp.swift */,
 			);
 			path = App;
@@ -74,6 +89,7 @@
 		5E100CE43CFEB08BC00061AA /* Voy */ = {
 			isa = PBXGroup;
 			children = (
+				327D763BF788FEA8249E8B03 /* Voy.entitlements */,
 				536B3A839394036BE257F462 /* App */,
 				2AF7B6726267FE1DA8C480B4 /* Data */,
 				3A9AF6761F63897D2A146308 /* Domain */,
@@ -95,6 +111,7 @@
 		6C9CB254AA9160C64040A98F /* VoyTests */ = {
 			isa = PBXGroup;
 			children = (
+				B1572C4EE7CED1E415783EE9 /* DataSchemaTests.swift */,
 				AFF0435EC71CD75964617D6E /* InventoryCalculationsTests.swift */,
 				2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */,
 			);
@@ -182,6 +199,7 @@
 					413B68B09BB9BFDDB66164B8 = {
 						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = "[\"com.apple.iCloud\": [\"enabled\": 1], \"com.apple.Push\": [\"enabled\": 1]]";
 					};
 				};
 			};
@@ -221,12 +239,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5B81444A3115CBEE4905988 /* AppState.swift in Sources */,
 				89DC48BA9B4EDC2744AFAE7C /* AppTabView.swift in Sources */,
+				5C1A5696E41896209F5AC6DB /* DataSchema.swift in Sources */,
+				9ADFE4D52543C72F79DBC088 /* DataSeeder.swift in Sources */,
 				7FE70B05A4C08BB5DC2A5A03 /* InventoryCalculations.swift in Sources */,
 				E12CF229C0B054D5D2A69EF5 /* InventoryModels.swift in Sources */,
 				20C58E58EA937523E7D0A53E /* MinimalismModels.swift in Sources */,
 				3B878D957148F20FF8E38539 /* PackingCalculations.swift in Sources */,
 				158AC3E0ECCF274027AF1B12 /* PackingModels.swift in Sources */,
+				65651F57268C5CE269B4141E /* SyncStatusBanner.swift in Sources */,
 				0877D593327B6ABA74F4433F /* VoyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E44EE25D791705A7A8E0690C /* DataSchemaTests.swift in Sources */,
 				93E9C074C5FD6252FBF528DF /* InventoryCalculationsTests.swift in Sources */,
 				2396E335C180450858E49DBC /* PackingCalculationsTests.swift in Sources */,
 			);
@@ -401,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Voy/Voy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Voy;
@@ -439,6 +463,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Voy/Voy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Voy;
