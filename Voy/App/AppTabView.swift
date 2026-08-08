@@ -8,12 +8,7 @@ struct AppTabView: View {
     var body: some View {
         TabView {
             NavigationStack {
-                PlaceholderView(
-                    title: "Inventory",
-                    symbol: "square.grid.2x2",
-                    message: "Your possessions will appear here."
-                )
-                .navigationTitle("Inventory")
+                InventoryView()
             }
             .tabItem {
                 Label("Inventory", systemImage: "square.grid.2x2")
