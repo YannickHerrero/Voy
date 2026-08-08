@@ -15,12 +15,7 @@ struct AppTabView: View {
             }
 
             NavigationStack {
-                PlaceholderView(
-                    title: "Packing",
-                    symbol: "suitcase",
-                    message: "Reusable lists and trips will appear here."
-                )
-                .navigationTitle("Packing")
+                PackingView()
             }
             .tabItem {
                 Label("Packing", systemImage: "suitcase")
