@@ -12,6 +12,7 @@ struct InventoryView: View {
     @State private var selectedStatus: ItemStatus? = .owned
     @State private var showsItemEditor = false
     @State private var showsOrganizer = false
+    @State private var showsEnrichment = false
 
     private let columns = [GridItem(.adaptive(minimum: 142, maximum: 230), spacing: 20)]
 
@@ -73,10 +74,15 @@ struct InventoryView: View {
         .searchable(text: $searchText, prompt: "Search possessions")
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
-                Button {
-                    showsOrganizer = true
+                Menu {
+                    Button("Enrich Inventory", systemImage: "checklist") {
+                        showsEnrichment = true
+                    }
+                    Button("Categories & Collections", systemImage: "rectangle.3.group") {
+                        showsOrganizer = true
+                    }
                 } label: {
-                    Label("Organize", systemImage: "ellipsis.circle")
+                    Label("Inventory Actions", systemImage: "ellipsis.circle")
                 }
 
                 Button {
@@ -85,6 +91,9 @@ struct InventoryView: View {
                     Label("Add Item", systemImage: "plus")
                 }
             }
+        }
+        .navigationDestination(isPresented: $showsEnrichment) {
+            InventoryEnrichmentView()
         }
         .sheet(isPresented: $showsItemEditor) {
             InventoryItemEditorView()
