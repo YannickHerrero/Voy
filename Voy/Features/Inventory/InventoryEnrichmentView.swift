@@ -9,6 +9,9 @@ struct InventoryEnrichmentView: View {
     @AppStorage("inventoryEnrichment.selectedField") private var selectedFieldRawValue = InventoryDetailField.weight.rawValue
     @State private var searchText = ""
     @State private var editorRequest: EditorRequest?
+#if DEBUG
+    @State private var didPresentDebugEditor = false
+#endif
 
     private var selectedField: InventoryDetailField {
         InventoryDetailField(rawValue: selectedFieldRawValue) ?? .weight
@@ -89,6 +92,17 @@ struct InventoryEnrichmentView: View {
                     .presentationDetents([.medium])
             }
         }
+#if DEBUG
+        .task(id: items.count) {
+            guard
+                !didPresentDebugEditor,
+                ProcessInfo.processInfo.arguments.contains("-ShowEnrichmentEditor"),
+                let item = incompleteItems.first
+            else { return }
+            didPresentDebugEditor = true
+            editorRequest = EditorRequest(itemID: item.id, field: selectedField)
+        }
+#endif
     }
 
     private var enrichmentHeader: some View {

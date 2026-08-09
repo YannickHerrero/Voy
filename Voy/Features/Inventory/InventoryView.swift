@@ -16,6 +16,14 @@ struct InventoryView: View {
 
     private let columns = [GridItem(.adaptive(minimum: 142, maximum: 230), spacing: 20)]
 
+    init() {
+#if DEBUG
+        let arguments = ProcessInfo.processInfo.arguments
+        _showsEnrichment = State(initialValue: arguments.contains("-ShowEnrichment")
+            || arguments.contains("-ShowEnrichmentEditor"))
+#endif
+    }
+
     private var filter: InventoryFilter {
         InventoryFilter(
             searchText: searchText,

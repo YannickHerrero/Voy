@@ -31,9 +31,11 @@ enum DebugSampleData {
                 categoryID: category.id,
                 status: index.isMultiple(of: 29) ? .archived : (index.isMultiple(of: 13) ? .outgoing : .owned),
                 createdAt: Calendar.current.date(byAdding: .day, value: -index * 2, to: .now) ?? .now,
+                itemDescription: index.isMultiple(of: 17) ? "Ready for the next trip." : nil,
                 quantity: index.isMultiple(of: 11) ? 3 : 1,
                 weightGrams: index.isMultiple(of: 5) ? nil : Double(90 + (index % 18) * 115),
-                collectionIDs: sampleCollectionIDs(index: index, collections: collections)
+                collectionIDs: sampleCollectionIDs(index: index, collections: collections),
+                reviewedDetailRawValues: sampleReviewedDetails(index: index)
             )
             context.insert(item)
             items.append(item)
@@ -94,6 +96,16 @@ enum DebugSampleData {
         }
         _ = try InventoryHistoryRecorder.record(items: items, in: context)
         try context.save()
+    }
+
+    private static func sampleReviewedDetails(index: Int) -> [String] {
+        var fields: [InventoryDetailField] = []
+        if index.isMultiple(of: 4) { fields.append(.category) }
+        if index.isMultiple(of: 6) { fields.append(.quantity) }
+        if index.isMultiple(of: 7) { fields.append(.status) }
+        if index.isMultiple(of: 9) { fields.append(.notes) }
+        if index.isMultiple(of: 20) { fields.append(.weight) }
+        return fields.map(\.rawValue)
     }
 
     private static func sampleCollectionIDs(
