@@ -5,6 +5,8 @@ Voy is a private, offline-first inventory, minimalism, and trip-packing app for 
 ## Features
 
 - Photo-first inventory with search, categories, collections, quantities, weights, and lifecycle statuses
+- Focused enrichment queues for reviewing weight, category, quantity, status, and notes across many items
+- Collection-centric bulk membership management with searchable multi-selection
 - Camera and Photos library import with resizing, thumbnails, and optional Vision foreground extraction
 - In-app `WKWebView` product browser with retailer-agnostic image discovery and source attribution
 - Reusable packing templates and independent trip sessions with progress and weight totals
