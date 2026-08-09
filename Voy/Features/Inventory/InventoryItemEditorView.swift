@@ -101,11 +101,11 @@ struct InventoryItemEditorView: View {
                         Stepper("Quantity: \(draft.quantity)", value: $draft.quantity, in: 1...9_999)
 
                         LabeledContent("Weight") {
-                            TextField("kg", text: $draft.weightKilograms)
+                            TextField("g", text: $draft.weightGrams)
                                 .keyboardType(.decimalPad)
                                 .multilineTextAlignment(.trailing)
                                 .frame(maxWidth: 110)
-                                .accessibilityLabel("Weight in kilograms")
+                                .accessibilityLabel("Weight in grams")
                         }
 
                         if !collections.isEmpty {
@@ -325,9 +325,9 @@ struct InventoryItemEditorView: View {
     }
 
     private var parsedWeightGrams: Double? {
-        let normalized = draft.weightKilograms.replacingOccurrences(of: ",", with: ".")
-        guard let kilograms = Double(normalized), kilograms >= 0 else { return nil }
-        return kilograms * 1_000
+        let normalized = draft.weightGrams.replacingOccurrences(of: ",", with: ".")
+        guard let grams = Double(normalized), grams >= 0 else { return nil }
+        return grams
     }
 }
 
@@ -337,7 +337,7 @@ private extension InventoryItemEditorView {
         var categoryID: UUID?
         var status: ItemStatus
         var quantity: Int
-        var weightKilograms: String
+        var weightGrams: String
         var itemDescription: String
         var collectionIDs: Set<UUID>
         var imageData: Data?
@@ -352,9 +352,9 @@ private extension InventoryItemEditorView {
             status = item?.status ?? .owned
             quantity = item?.quantity ?? 1
             if let grams = item?.weightGrams {
-                weightKilograms = (grams / 1_000).formatted(.number.precision(.fractionLength(0...3)))
+                weightGrams = grams.formatted(.number.precision(.fractionLength(0...1)))
             } else {
-                weightKilograms = ""
+                weightGrams = ""
             }
             itemDescription = item?.itemDescription ?? ""
             collectionIDs = Set(item?.collectionIDs ?? [])
@@ -366,7 +366,7 @@ private extension InventoryItemEditorView {
         }
 
         var hasOptionalDetails: Bool {
-            status != .owned || quantity != 1 || !weightKilograms.isEmpty
+            status != .owned || quantity != 1 || !weightGrams.isEmpty
                 || !itemDescription.isEmpty || !collectionIDs.isEmpty
         }
     }
