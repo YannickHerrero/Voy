@@ -40,6 +40,7 @@ final class InventoryItem {
     var quantity: Int = 1
     var weightGrams: Double?
     var collectionIDs: [UUID] = []
+    var reviewedDetailRawValues: [String] = []
     var sourceURLString: String?
     var originalImageURLString: String?
 
@@ -57,6 +58,7 @@ final class InventoryItem {
         quantity: Int = 1,
         weightGrams: Double? = nil,
         collectionIDs: [UUID] = [],
+        reviewedDetailRawValues: [String] = [],
         sourceURL: URL? = nil,
         originalImageURL: URL? = nil
     ) {
@@ -73,6 +75,7 @@ final class InventoryItem {
         self.quantity = max(1, quantity)
         self.weightGrams = weightGrams
         self.collectionIDs = collectionIDs
+        self.reviewedDetailRawValues = reviewedDetailRawValues
         sourceURLString = sourceURL?.absoluteString
         originalImageURLString = originalImageURL?.absoluteString
     }

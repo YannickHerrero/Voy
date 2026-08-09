@@ -16,6 +16,7 @@
 		20C58E58EA937523E7D0A53E /* MinimalismModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682D6E1B2DA2233DA24D006 /* MinimalismModels.swift */; };
 		2396E335C180450858E49DBC /* PackingCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */; };
 		3A66DBC9F6D1B645AFBAD795 /* PackingSessionFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4586943771F11FC1D971A /* PackingSessionFactoryTests.swift */; };
+		3AF3F9307E80476E3B0BAA5E /* InventoryEnrichment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3686EDFCAA78C5BBAF2AF5F /* InventoryEnrichment.swift */; };
 		3B47A3387A142E4D61CD2F60 /* InventoryHistoryRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB7FD616EA929A20E66C24 /* InventoryHistoryRecorder.swift */; };
 		3B878D957148F20FF8E38539 /* PackingCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CE3145B3DBA565BECC0B6 /* PackingCalculations.swift */; };
 		42881AC2F131971916C70FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E795D2F0760E758049CE9D4 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		9ADFE4D52543C72F79DBC088 /* DataSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC89692550F9CCB830C250F /* DataSeeder.swift */; };
 		A240A447EF03ED3F70DD52FA /* WebImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5913B7AEC9E4D59E8E851C9E /* WebImageDownloader.swift */; };
 		AED5442697937F8C95E62560 /* WebImageCandidateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CF291771F745A2CFD661BF /* WebImageCandidateTests.swift */; };
+		AFAD55A2DCE233D683AA941E /* InventoryEnrichmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6B1C3DAC67841B7F5C6B7 /* InventoryEnrichmentTests.swift */; };
 		BB2BA6BB4A5B8AC8646A487A /* WeightFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DB18DE5711ED9BF61AD8CC /* WeightFormatting.swift */; };
 		CBDCCFDDB057FCDCB9367B88 /* ImageFileProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A225337936253C2F1F5B6F6 /* ImageFileProcessorTests.swift */; };
 		D0D4982D2BA6A10973C3F0CD /* PackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B30351DDF2BBF1DB00134A2 /* PackingView.swift */; };
@@ -80,6 +82,7 @@
 		2F3C4139255656A9DABD4FEE /* PackingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingModels.swift; sourceTree = "<group>"; };
 		327D763BF788FEA8249E8B03 /* Voy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Voy.entitlements; sourceTree = "<group>"; };
 		36DB18DE5711ED9BF61AD8CC /* WeightFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightFormatting.swift; sourceTree = "<group>"; };
+		38C6B1C3DAC67841B7F5C6B7 /* InventoryEnrichmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEnrichmentTests.swift; sourceTree = "<group>"; };
 		3B30351DDF2BBF1DB00134A2 /* PackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingView.swift; sourceTree = "<group>"; };
 		4466EA62A04C6507D703660D /* WebImageCandidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageCandidate.swift; sourceTree = "<group>"; };
 		4489C3365D9438DADF25134C /* PackingSessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingSessionDetailView.swift; sourceTree = "<group>"; };
@@ -103,6 +106,7 @@
 		B682D6E1B2DA2233DA24D006 /* MinimalismModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalismModels.swift; sourceTree = "<group>"; };
 		C3100F5D24C412646EAB53C1 /* InventoryTaxonomyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTaxonomyView.swift; sourceTree = "<group>"; };
 		CE7F560DD7DD5751C2F2491D /* Voy.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Voy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3686EDFCAA78C5BBAF2AF5F /* InventoryEnrichment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEnrichment.swift; sourceTree = "<group>"; };
 		D40961D107237757B99F8C3A /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		DB9655DB4FF96E4F07C0B69C /* PackingTemplateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingTemplateDetailView.swift; sourceTree = "<group>"; };
 		DC783AA5C9039FAE5FB477D3 /* MinimalismView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalismView.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				03E5B05AAEA2088D992170E0 /* InventoryCalculations.swift */,
+				D3686EDFCAA78C5BBAF2AF5F /* InventoryEnrichment.swift */,
 				75CB7FD616EA929A20E66C24 /* InventoryHistoryRecorder.swift */,
 				717CE3145B3DBA565BECC0B6 /* PackingCalculations.swift */,
 				2E3EA70F4086C37F59D03993 /* PackingSessionFactory.swift */,
@@ -218,6 +223,7 @@
 				B1572C4EE7CED1E415783EE9 /* DataSchemaTests.swift */,
 				2A225337936253C2F1F5B6F6 /* ImageFileProcessorTests.swift */,
 				AFF0435EC71CD75964617D6E /* InventoryCalculationsTests.swift */,
+				38C6B1C3DAC67841B7F5C6B7 /* InventoryEnrichmentTests.swift */,
 				8B413D569F0DF37C5D4FC34F /* InventoryHistoryRecorderTests.swift */,
 				2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */,
 				05E4586943771F11FC1D971A /* PackingSessionFactoryTests.swift */,
@@ -341,7 +347,7 @@
 					};
 					413B68B09BB9BFDDB66164B8 = {
 						DevelopmentTeam = "";
-						SystemCapabilities = "[\"com.apple.Push\": [\"enabled\": 1], \"com.apple.iCloud\": [\"enabled\": 1]]";
+						SystemCapabilities = "[\"com.apple.iCloud\": [\"enabled\": 1], \"com.apple.Push\": [\"enabled\": 1]]";
 					};
 				};
 			};
@@ -389,6 +395,7 @@
 				D698E49D46619B73346C5AFD /* DebugSampleData.swift in Sources */,
 				E5C1610B7CB5417E0573AA09 /* ImageFileProcessor.swift in Sources */,
 				7FE70B05A4C08BB5DC2A5A03 /* InventoryCalculations.swift in Sources */,
+				3AF3F9307E80476E3B0BAA5E /* InventoryEnrichment.swift in Sources */,
 				3B47A3387A142E4D61CD2F60 /* InventoryHistoryRecorder.swift in Sources */,
 				55B2424E3DE4D36F958CDDC3 /* InventoryItemDetailView.swift in Sources */,
 				FA80BAE85D69AE364939ED59 /* InventoryItemEditorView.swift in Sources */,
@@ -427,6 +434,7 @@
 				E44EE25D791705A7A8E0690C /* DataSchemaTests.swift in Sources */,
 				CBDCCFDDB057FCDCB9367B88 /* ImageFileProcessorTests.swift in Sources */,
 				93E9C074C5FD6252FBF528DF /* InventoryCalculationsTests.swift in Sources */,
+				AFAD55A2DCE233D683AA941E /* InventoryEnrichmentTests.swift in Sources */,
 				D97910B3CFF5E8E677DD34C8 /* InventoryHistoryRecorderTests.swift in Sources */,
 				2396E335C180450858E49DBC /* PackingCalculationsTests.swift in Sources */,
 				3A66DBC9F6D1B645AFBAD795 /* PackingSessionFactoryTests.swift in Sources */,
