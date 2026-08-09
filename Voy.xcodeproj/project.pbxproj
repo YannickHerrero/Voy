@@ -12,6 +12,7 @@
 		107D0608DF2CC508C1499290 /* InventorySubsetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440B69ABA675184F6B82D34 /* InventorySubsetView.swift */; };
 		158AC3E0ECCF274027AF1B12 /* PackingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3C4139255656A9DABD4FEE /* PackingModels.swift */; };
 		170D5B8D34CC7B97B71D385A /* InventoryTaxonomyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3100F5D24C412646EAB53C1 /* InventoryTaxonomyView.swift */; };
+		1A2DA4158BDD41EB0E56282F /* InventoryCollectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A634DB229D624E19D2D2E3CD /* InventoryCollectionDetailView.swift */; };
 		1FBA9ADED7986C5B043E15F4 /* StoredImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE6ADDC269ED044AEBAB4C /* StoredImageView.swift */; };
 		20C58E58EA937523E7D0A53E /* MinimalismModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682D6E1B2DA2233DA24D006 /* MinimalismModels.swift */; };
 		2396E335C180450858E49DBC /* PackingCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */; };
@@ -26,6 +27,7 @@
 		57F0CBC494C38BBB03D0DB09 /* WebBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7EEF97AE26B8842984A65 /* WebBrowserView.swift */; };
 		5C1A5696E41896209F5AC6DB /* DataSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD26EA2B83129B2169E7C85 /* DataSchema.swift */; };
 		5C301F971CE542812514D1BA /* PackingSessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4489C3365D9438DADF25134C /* PackingSessionDetailView.swift */; };
+		5E9ACE8B580D20A709729CC2 /* InventoryCollectionMembershipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38A0E2A83C8FE9AC7C6BF12 /* InventoryCollectionMembershipTests.swift */; };
 		60F0F0F76A5D5FC092DEFE0B /* PhotoNormalizationPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30FCA7378281DE4BC86861 /* PhotoNormalizationPreview.swift */; };
 		65651F57268C5CE269B4141E /* SyncStatusBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461CBD98670CCE2817FD93DC /* SyncStatusBanner.swift */; };
 		6DD93BF22FCBFE6A69C3CAAF /* PhotoNormalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF11332A792E433D6D35389 /* PhotoNormalizer.swift */; };
@@ -41,6 +43,7 @@
 		B83F203C3D0A4EE5A6A4F7B2 /* InventoryEnrichmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E2DB9CC55A0CFE44AB0111 /* InventoryEnrichmentView.swift */; };
 		BB2BA6BB4A5B8AC8646A487A /* WeightFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DB18DE5711ED9BF61AD8CC /* WeightFormatting.swift */; };
 		CBDCCFDDB057FCDCB9367B88 /* ImageFileProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A225337936253C2F1F5B6F6 /* ImageFileProcessorTests.swift */; };
+		CD4706BB605BA141A3F4BF60 /* InventoryCollectionMembership.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67D01F9F59CF9CC14359AB /* InventoryCollectionMembership.swift */; };
 		D0D4982D2BA6A10973C3F0CD /* PackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B30351DDF2BBF1DB00134A2 /* PackingView.swift */; };
 		D192DD218BF086A0C23D7180 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7907F2382C882A03235A059 /* InventoryView.swift */; };
 		D698E49D46619B73346C5AFD /* DebugSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE6743C87BBBE8923BEBF06 /* DebugSampleData.swift */; };
@@ -100,6 +103,8 @@
 		75CB7FD616EA929A20E66C24 /* InventoryHistoryRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryHistoryRecorder.swift; sourceTree = "<group>"; };
 		775DDA07E1221EE9AC8325B3 /* MinimalismSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalismSettingsView.swift; sourceTree = "<group>"; };
 		8B413D569F0DF37C5D4FC34F /* InventoryHistoryRecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryHistoryRecorderTests.swift; sourceTree = "<group>"; };
+		9C67D01F9F59CF9CC14359AB /* InventoryCollectionMembership.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCollectionMembership.swift; sourceTree = "<group>"; };
+		A634DB229D624E19D2D2E3CD /* InventoryCollectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCollectionDetailView.swift; sourceTree = "<group>"; };
 		A7907F2382C882A03235A059 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		ACD26EA2B83129B2169E7C85 /* DataSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSchema.swift; sourceTree = "<group>"; };
 		AFF0435EC71CD75964617D6E /* InventoryCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCalculationsTests.swift; sourceTree = "<group>"; };
@@ -107,6 +112,7 @@
 		B5BE6ADDC269ED044AEBAB4C /* StoredImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredImageView.swift; sourceTree = "<group>"; };
 		B682D6E1B2DA2233DA24D006 /* MinimalismModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalismModels.swift; sourceTree = "<group>"; };
 		C3100F5D24C412646EAB53C1 /* InventoryTaxonomyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTaxonomyView.swift; sourceTree = "<group>"; };
+		C38A0E2A83C8FE9AC7C6BF12 /* InventoryCollectionMembershipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCollectionMembershipTests.swift; sourceTree = "<group>"; };
 		CE7F560DD7DD5751C2F2491D /* Voy.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Voy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3686EDFCAA78C5BBAF2AF5F /* InventoryEnrichment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEnrichment.swift; sourceTree = "<group>"; };
 		D40961D107237757B99F8C3A /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				03E5B05AAEA2088D992170E0 /* InventoryCalculations.swift */,
+				9C67D01F9F59CF9CC14359AB /* InventoryCollectionMembership.swift */,
 				D3686EDFCAA78C5BBAF2AF5F /* InventoryEnrichment.swift */,
 				75CB7FD616EA929A20E66C24 /* InventoryHistoryRecorder.swift */,
 				717CE3145B3DBA565BECC0B6 /* PackingCalculations.swift */,
@@ -225,6 +232,7 @@
 				B1572C4EE7CED1E415783EE9 /* DataSchemaTests.swift */,
 				2A225337936253C2F1F5B6F6 /* ImageFileProcessorTests.swift */,
 				AFF0435EC71CD75964617D6E /* InventoryCalculationsTests.swift */,
+				C38A0E2A83C8FE9AC7C6BF12 /* InventoryCollectionMembershipTests.swift */,
 				38C6B1C3DAC67841B7F5C6B7 /* InventoryEnrichmentTests.swift */,
 				8B413D569F0DF37C5D4FC34F /* InventoryHistoryRecorderTests.swift */,
 				2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */,
@@ -246,6 +254,7 @@
 		99119E36BBA2A6BBC362F621 /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
+				A634DB229D624E19D2D2E3CD /* InventoryCollectionDetailView.swift */,
 				09E2DB9CC55A0CFE44AB0111 /* InventoryEnrichmentView.swift */,
 				130007479BBD0F4D533EA003 /* InventoryItemDetailView.swift */,
 				1DC41BBB5CC2A135BC0DB5F8 /* InventoryItemEditorView.swift */,
@@ -350,7 +359,7 @@
 					};
 					413B68B09BB9BFDDB66164B8 = {
 						DevelopmentTeam = "";
-						SystemCapabilities = "[\"com.apple.iCloud\": [\"enabled\": 1], \"com.apple.Push\": [\"enabled\": 1]]";
+						SystemCapabilities = "[\"com.apple.Push\": [\"enabled\": 1], \"com.apple.iCloud\": [\"enabled\": 1]]";
 					};
 				};
 			};
@@ -398,6 +407,8 @@
 				D698E49D46619B73346C5AFD /* DebugSampleData.swift in Sources */,
 				E5C1610B7CB5417E0573AA09 /* ImageFileProcessor.swift in Sources */,
 				7FE70B05A4C08BB5DC2A5A03 /* InventoryCalculations.swift in Sources */,
+				1A2DA4158BDD41EB0E56282F /* InventoryCollectionDetailView.swift in Sources */,
+				CD4706BB605BA141A3F4BF60 /* InventoryCollectionMembership.swift in Sources */,
 				3AF3F9307E80476E3B0BAA5E /* InventoryEnrichment.swift in Sources */,
 				B83F203C3D0A4EE5A6A4F7B2 /* InventoryEnrichmentView.swift in Sources */,
 				3B47A3387A142E4D61CD2F60 /* InventoryHistoryRecorder.swift in Sources */,
@@ -438,6 +449,7 @@
 				E44EE25D791705A7A8E0690C /* DataSchemaTests.swift in Sources */,
 				CBDCCFDDB057FCDCB9367B88 /* ImageFileProcessorTests.swift in Sources */,
 				93E9C074C5FD6252FBF528DF /* InventoryCalculationsTests.swift in Sources */,
+				5E9ACE8B580D20A709729CC2 /* InventoryCollectionMembershipTests.swift in Sources */,
 				AFAD55A2DCE233D683AA941E /* InventoryEnrichmentTests.swift in Sources */,
 				D97910B3CFF5E8E677DD34C8 /* InventoryHistoryRecorderTests.swift in Sources */,
 				2396E335C180450858E49DBC /* PackingCalculationsTests.swift in Sources */,

@@ -33,12 +33,7 @@ struct InventoryTaxonomyView: View {
 
                 Section {
                     ForEach(collections) { collection in
-                        taxonomyRow(
-                            name: collection.name,
-                            usage: collectionUsage(collection.id),
-                            edit: { editorRequest = EditorRequest(kind: .collection, id: collection.id, name: collection.name) },
-                            delete: { requestDeletion(kind: .collection, id: collection.id, name: collection.name) }
-                        )
+                        collectionRow(collection)
                     }
                 } header: {
                     Text("Collections")
@@ -107,6 +102,45 @@ struct InventoryTaxonomyView: View {
             } message: {
                 Text(errorMessage ?? "Please try again.")
             }
+        }
+    }
+
+    private func collectionRow(_ collection: InventoryCollection) -> some View {
+        let edit = {
+            editorRequest = EditorRequest(
+                kind: .collection,
+                id: collection.id,
+                name: collection.name
+            )
+        }
+        let delete = {
+            requestDeletion(kind: .collection, id: collection.id, name: collection.name)
+        }
+
+        return HStack {
+            NavigationLink {
+                InventoryCollectionDetailView(collection: collection)
+            } label: {
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(collection.name)
+                    let usage = collectionUsage(collection.id)
+                    Text("\(usage) \(usage == 1 ? "item" : "items")")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+
+            Button("Rename", systemImage: "pencil", action: edit)
+                .labelStyle(.iconOnly)
+                .buttonStyle(.borderless)
+            Button("Remove", systemImage: "trash", action: delete)
+                .labelStyle(.iconOnly)
+                .buttonStyle(.borderless)
+                .foregroundStyle(.red)
+        }
+        .contextMenu {
+            Button("Rename", systemImage: "pencil", action: edit)
+            Button("Remove", systemImage: "trash", role: .destructive, action: delete)
         }
     }
 
