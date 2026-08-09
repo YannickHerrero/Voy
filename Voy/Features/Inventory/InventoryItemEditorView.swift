@@ -40,6 +40,8 @@ struct InventoryItemEditorView: View {
         !isPreparingImage
             && !draft.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
             && draft.categoryID != nil
+            && (draft.weightGrams.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+                || parsedWeightGrams != nil)
     }
 
     var body: some View {

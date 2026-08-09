@@ -290,12 +290,14 @@ private struct InventoryDetailQuickEditor: View {
                                 Button("Skip", systemImage: "forward") {
                                     advanceWithoutSaving()
                                 }
+                                .foregroundStyle(.primary)
                                 .frame(maxWidth: .infinity)
                             }
 
                             Button("Save & Close") {
                                 save(advance: false)
                             }
+                            .foregroundStyle(.primary)
                             .frame(maxWidth: .infinity)
                             .disabled(!canSave)
                         }
@@ -486,7 +488,7 @@ private extension View {
             presentationDetents([.medium, .large])
                 .presentationDragIndicator(.visible)
         } else {
-            presentationSizing(.form)
+            self
         }
     }
 }

@@ -13,16 +13,11 @@ struct InventoryView: View {
     @State private var showsItemEditor = false
     @State private var showsOrganizer = false
     @State private var showsEnrichment = false
+#if DEBUG
+    @State private var didHandleDebugRoute = false
+#endif
 
     private let columns = [GridItem(.adaptive(minimum: 142, maximum: 230), spacing: 20)]
-
-    init() {
-#if DEBUG
-        let arguments = ProcessInfo.processInfo.arguments
-        _showsEnrichment = State(initialValue: arguments.contains("-ShowEnrichment")
-            || arguments.contains("-ShowEnrichmentEditor"))
-#endif
-    }
 
     private var filter: InventoryFilter {
         InventoryFilter(
@@ -103,6 +98,23 @@ struct InventoryView: View {
         .navigationDestination(isPresented: $showsEnrichment) {
             InventoryEnrichmentView()
         }
+#if DEBUG
+        .task {
+            let arguments = ProcessInfo.processInfo.arguments
+            let showsDebugEnrichment = arguments.contains("-ShowEnrichment")
+                || arguments.contains("-ShowEnrichmentEditor")
+            let showsDebugCollection = arguments.contains("-ShowCollection")
+                || arguments.contains("-ShowCollectionManager")
+            guard !didHandleDebugRoute, showsDebugEnrichment || showsDebugCollection else { return }
+            didHandleDebugRoute = true
+            try? await Task.sleep(for: .milliseconds(500))
+            if showsDebugEnrichment {
+                showsEnrichment = true
+            } else {
+                showsOrganizer = true
+            }
+        }
+#endif
         .sheet(isPresented: $showsItemEditor) {
             InventoryItemEditorView()
         }

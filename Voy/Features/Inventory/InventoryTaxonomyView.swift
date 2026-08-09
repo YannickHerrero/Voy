@@ -12,6 +12,10 @@ struct InventoryTaxonomyView: View {
     @State private var editorRequest: EditorRequest?
     @State private var deletionRequest: DeletionRequest?
     @State private var errorMessage: String?
+#if DEBUG
+    @State private var showsDebugCollection = false
+    @State private var didHandleDebugRoute = false
+#endif
 
     var body: some View {
         NavigationStack {
@@ -43,6 +47,26 @@ struct InventoryTaxonomyView: View {
             }
             .navigationTitle("Organize Inventory")
             .navigationBarTitleDisplayMode(.inline)
+#if DEBUG
+            .navigationDestination(isPresented: $showsDebugCollection) {
+                if let collection = collections.first {
+                    InventoryCollectionDetailView(collection: collection)
+                } else {
+                    ContentUnavailableView("No Collections", systemImage: "rectangle.stack")
+                }
+            }
+            .task(id: collections.count) {
+                let arguments = ProcessInfo.processInfo.arguments
+                guard
+                    !didHandleDebugRoute,
+                    !collections.isEmpty,
+                    arguments.contains("-ShowCollection") || arguments.contains("-ShowCollectionManager")
+                else { return }
+                didHandleDebugRoute = true
+                try? await Task.sleep(for: .milliseconds(400))
+                showsDebugCollection = true
+            }
+#endif
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Done") { dismiss() }
@@ -177,7 +201,7 @@ struct InventoryTaxonomyView: View {
     }
 
     private func collectionUsage(_ id: UUID) -> Int {
-        items.lazy.filter { $0.collectionIDs.contains(id) }.reduce(0) { $0 + max(1, $1.quantity) }
+        items.lazy.filter { $0.collectionIDs.contains(id) }.count
     }
 
     private func requestDeletion(kind: TaxonomyKind, id: UUID, name: String) {

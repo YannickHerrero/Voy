@@ -8,6 +8,9 @@ struct InventoryCollectionDetailView: View {
     let collection: InventoryCollection
     @State private var searchText = ""
     @State private var showsMembershipEditor = false
+#if DEBUG
+    @State private var didHandleDebugRoute = false
+#endif
 
     private var matchingMembers: [InventoryItem] {
         items.filter { item in
@@ -61,6 +64,17 @@ struct InventoryCollectionDetailView: View {
                 }
             }
         }
+#if DEBUG
+        .task {
+            guard
+                !didHandleDebugRoute,
+                ProcessInfo.processInfo.arguments.contains("-ShowCollectionManager")
+            else { return }
+            didHandleDebugRoute = true
+            try? await Task.sleep(for: .milliseconds(400))
+            showsMembershipEditor = true
+        }
+#endif
         .sheet(isPresented: $showsMembershipEditor) {
             InventoryCollectionMembershipEditor(collection: collection)
                 .collectionEditorPresentation(horizontalSizeClass: horizontalSizeClass)
@@ -255,7 +269,7 @@ private extension View {
             presentationDetents([.large])
                 .presentationDragIndicator(.visible)
         } else {
-            presentationSizing(.page)
+            self
         }
     }
 }

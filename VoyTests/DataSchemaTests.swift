@@ -14,7 +14,8 @@ struct DataSchemaTests {
             categoryID: category.id,
             quantity: 1,
             weightGrams: 1_240,
-            collectionIDs: [collection.id]
+            collectionIDs: [collection.id],
+            reviewedDetailRawValues: [InventoryDetailField.category.rawValue]
         )
         context.insert(category)
         context.insert(collection)
@@ -25,6 +26,7 @@ struct DataSchemaTests {
         #expect(items.count == 1)
         #expect(items.first?.name == "Laptop")
         #expect(items.first?.collectionIDs == [collection.id])
+        #expect(items.first?.reviewedDetailFields == [.category])
     }
 
     @Test @MainActor func seedingIsIdempotent() throws {
