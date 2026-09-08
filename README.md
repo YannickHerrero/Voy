@@ -13,6 +13,7 @@ Voy is a private, offline-first inventory, minimalism, and trip-packing app for 
 - Historical packing snapshots that remain useful when inventory items later change
 - Minimalism dashboard with goals, category drill-down, nomadic-life comparison, and inventory history
 - SwiftData persistence with private CloudKit sync and a local offline fallback
+- Optional one-way snapshots to a private [Voy Server](https://github.com/YannickHerrero/voy-server) web mirror
 - Adaptive iPhone tab bar and iPad sidebar-style tab navigation, including light and dark appearances
 
 ## Requirements
@@ -39,6 +40,12 @@ Voy is a private, offline-first inventory, minimalism, and trip-packing app for 
 
 Before distributing a production build, deploy the CloudKit development schema to production in CloudKit Console. User data is stored in each user's private CloudKit database.
 
+## Optional server mirror
+
+Deploy Voy Server behind private HTTPS access, then open **Minimalism → Settings → Server Mirror**. Enter the server URL and its bearer token. The token is stored in the iOS Keychain; it is not stored in SwiftData or CloudKit.
+
+Voy uploads on launch, whenever the app becomes active, and on demand from the settings screen. Content-addressed photos are uploaded only when missing. The server mirror and web interface are read-only: Voy and CloudKit remain the source of truth.
+
 ## TestFlight
 
 TestFlight delivery uses Fastlane and an App Store Connect API key stored outside the repository:
@@ -61,7 +68,7 @@ xcodebuild test \
   CODE_SIGNING_ALLOWED=NO
 ```
 
-The tests cover schema bootstrapping, inventory and packing calculations, session independence, historical snapshots, inventory history, image processing, and web-image filtering.
+The tests cover schema bootstrapping, inventory and packing calculations, session independence, historical snapshots, inventory history, image processing, web-image filtering, and deterministic server snapshot encoding.
 
 Debug builds also support deterministic visual checks:
 
