@@ -1,5 +1,6 @@
 import SwiftData
 
+@MainActor
 enum DataSchema {
     static let schema = Schema([
         InventoryItem.self,

@@ -3,7 +3,9 @@ import SwiftUI
 
 struct AppTabView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.scenePhase) private var scenePhase
     @Environment(AppState.self) private var appState
+    @Environment(VoySyncCoordinator.self) private var syncCoordinator
     @State private var selection: AppTab
 
     init() {
@@ -46,6 +48,13 @@ struct AppTabView: View {
         .task {
             appState.bootstrapIfNeeded(using: modelContext)
             await appState.refreshCloudStatus()
+            await syncCoordinator.syncIfConfigured(using: modelContext)
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            guard newPhase == .active else { return }
+            Task {
+                await syncCoordinator.syncIfConfigured(using: modelContext)
+            }
         }
     }
 }
@@ -60,5 +69,6 @@ private enum AppTab: String {
     let state = AppState()
     AppTabView()
         .environment(state)
+        .environment(VoySyncCoordinator())
         .modelContainer(state.modelContainer)
 }

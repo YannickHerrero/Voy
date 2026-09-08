@@ -57,8 +57,18 @@ struct MinimalismSettingsView: View {
                 } footer: {
                     Text("Leave this blank if you do not want a goal.")
                 }
+
+                Section {
+                    NavigationLink {
+                        VoyServerSettingsView()
+                    } label: {
+                        Label("Server Mirror", systemImage: "server.rack")
+                    }
+                } footer: {
+                    Text("Upload private, read-only snapshots for viewing in a web browser.")
+                }
             }
-            .navigationTitle("Minimalism Settings")
+            .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {

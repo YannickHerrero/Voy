@@ -1,0 +1,29 @@
+name: iOS
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - name: Run unit tests
+        run: |
+          set -o pipefail
+          DEVICE_ID="$(xcrun simctl list devices available -j | python3 -c '
+          import json, sys
+          devices = json.load(sys.stdin)["devices"]
+          print(next(device["udid"] for runtime in devices.values() for device in runtime if device["name"].startswith("iPhone")))
+          ')"
+          xcodebuild test \
+            -project Voy.xcodeproj \
+            -scheme Voy \
+            -destination "platform=iOS Simulator,id=$DEVICE_ID" \
+            CODE_SIGNING_ALLOWED=NO
