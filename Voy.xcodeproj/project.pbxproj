@@ -57,6 +57,13 @@
 		F5B81444A3115CBEE4905988 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCDDBE2560613C0C300B31 /* AppState.swift */; };
 		F7A0C3817F10866C9C0E9DEE /* InventoryItemPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32447E871E8A61B29F01D8 /* InventoryItemPickerView.swift */; };
 		FA80BAE85D69AE364939ED59 /* InventoryItemEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC41BBB5CC2A135BC0DB5F8 /* InventoryItemEditorView.swift */; };
+		7FA8ABF10601476E0E5381FC /* VoySyncDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAD2EB9B3E3FB97E0C2857E /* VoySyncDocument.swift */; };
+		7FEAE6EC896A12C969695EEA /* VoySyncEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2726681236ED1F8F9107D /* VoySyncEncoder.swift */; };
+		3F30134B32F6EE92950C43C7 /* VoyServerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD45C48F83D4B3CA5D6E2A8 /* VoyServerConfiguration.swift */; };
+		0FB169413288C6344475E09D /* VoyServerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4D995B7F1574B0C9D3C99D /* VoyServerClient.swift */; };
+		D5B5614667A7FFF04224FEC9 /* VoySyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CDDC6DA9400B2AD783209 /* VoySyncCoordinator.swift */; };
+		04E19A3CAE322C9FD7B51B16 /* VoyServerSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C828C90363417484197877 /* VoyServerSettingsView.swift */; };
+		DDD86D64F3996D5E01245760 /* VoySyncEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508DF1303E26731952E8595F /* VoySyncEncoderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +130,13 @@
 		F440B69ABA675184F6B82D34 /* InventorySubsetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventorySubsetView.swift; sourceTree = "<group>"; };
 		FB32447E871E8A61B29F01D8 /* InventoryItemPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItemPickerView.swift; sourceTree = "<group>"; };
 		FFE6743C87BBBE8923BEBF06 /* DebugSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSampleData.swift; sourceTree = "<group>"; };
+		6FAD2EB9B3E3FB97E0C2857E /* VoySyncDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoySyncDocument.swift; sourceTree = "<group>"; };
+		0EA2726681236ED1F8F9107D /* VoySyncEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoySyncEncoder.swift; sourceTree = "<group>"; };
+		BBD45C48F83D4B3CA5D6E2A8 /* VoyServerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyServerConfiguration.swift; sourceTree = "<group>"; };
+		3F4D995B7F1574B0C9D3C99D /* VoyServerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyServerClient.swift; sourceTree = "<group>"; };
+		3B2CDDC6DA9400B2AD783209 /* VoySyncCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoySyncCoordinator.swift; sourceTree = "<group>"; };
+		75C828C90363417484197877 /* VoyServerSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyServerSettingsView.swift; sourceTree = "<group>"; };
+		508DF1303E26731952E8595F /* VoySyncEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoySyncEncoderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -162,6 +176,7 @@
 			children = (
 				775DDA07E1221EE9AC8325B3 /* MinimalismSettingsView.swift */,
 				DC783AA5C9039FAE5FB477D3 /* MinimalismView.swift */,
+				75C828C90363417484197877 /* VoyServerSettingsView.swift */,
 			);
 			path = Minimalism;
 			sourceTree = "<group>";
@@ -212,6 +227,7 @@
 				2063F381CA9216E076A73BF3 /* Features */,
 				FC6FE6B08C78D57CB2B364CD /* Media */,
 				A5973367CA10F5BA05D21DCE /* Resources */,
+				EB7D4CE9E4DE701537A42304 /* Sync */,
 			);
 			path = Voy;
 			sourceTree = "<group>";
@@ -237,6 +253,7 @@
 				8B413D569F0DF37C5D4FC34F /* InventoryHistoryRecorderTests.swift */,
 				2202AE43C955DC4CA96B40C7 /* PackingCalculationsTests.swift */,
 				05E4586943771F11FC1D971A /* PackingSessionFactoryTests.swift */,
+				508DF1303E26731952E8595F /* VoySyncEncoderTests.swift */,
 				F3CF291771F745A2CFD661BF /* WebImageCandidateTests.swift */,
 			);
 			path = VoyTests;
@@ -291,6 +308,18 @@
 				4EF3E79F71A77D30783499BE /* VoyTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EB7D4CE9E4DE701537A42304 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				3F4D995B7F1574B0C9D3C99D /* VoyServerClient.swift */,
+				BBD45C48F83D4B3CA5D6E2A8 /* VoyServerConfiguration.swift */,
+				3B2CDDC6DA9400B2AD783209 /* VoySyncCoordinator.swift */,
+				6FAD2EB9B3E3FB97E0C2857E /* VoySyncDocument.swift */,
+				0EA2726681236ED1F8F9107D /* VoySyncEncoder.swift */,
+			);
+			path = Sync;
 			sourceTree = "<group>";
 		};
 		FC6FE6B08C78D57CB2B364CD /* Media */ = {
@@ -439,6 +468,12 @@
 				46A8CE85F5B20A4A1D351FA1 /* WebImageCandidate.swift in Sources */,
 				A240A447EF03ED3F70DD52FA /* WebImageDownloader.swift in Sources */,
 				BB2BA6BB4A5B8AC8646A487A /* WeightFormatting.swift in Sources */,
+				0FB169413288C6344475E09D /* VoyServerClient.swift in Sources */,
+				3F30134B32F6EE92950C43C7 /* VoyServerConfiguration.swift in Sources */,
+				D5B5614667A7FFF04224FEC9 /* VoySyncCoordinator.swift in Sources */,
+				7FA8ABF10601476E0E5381FC /* VoySyncDocument.swift in Sources */,
+				7FEAE6EC896A12C969695EEA /* VoySyncEncoder.swift in Sources */,
+				04E19A3CAE322C9FD7B51B16 /* VoyServerSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +490,7 @@
 				2396E335C180450858E49DBC /* PackingCalculationsTests.swift in Sources */,
 				3A66DBC9F6D1B645AFBAD795 /* PackingSessionFactoryTests.swift in Sources */,
 				AED5442697937F8C95E62560 /* WebImageCandidateTests.swift in Sources */,
+				DDD86D64F3996D5E01245760 /* VoySyncEncoderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
